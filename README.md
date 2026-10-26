@@ -1,22 +1,25 @@
 # Jenius Tryout by Jenius Edu
 
-Fondasi website publik untuk **Jenius Tryout**, bagian dari ekosistem Jenius Education.
+Website publik multi-halaman berdasarkan tujuh referensi UI/UX yang diberikan.
 
-## Status
+## Halaman
 
-Tahap awal: halaman publik responsif dan navigasi dasar. **Belum ada autentikasi, CBT, pembayaran, atau database aktif.** Seluruh data pada halaman adalah placeholder; tidak menampilkan angka peserta atau jadwal fiktif.
+- `index.html`: Beranda
+- `kategori.html`: Kategori Tryout
+- `jadwal.html`: Jadwal dan filter kategori, kalender navigasi
+- `harga.html`: Paket dan perbandingan fitur
+- `tentang.html`: Tentang platform
+- `faq.html`: FAQ, filter dan pencarian
+- `detail-tryout.html`: Detail kategori dan informasi program
 
-## Struktur
+## Teknologi
 
-- `index.html` — halaman publik awal dan bagian menu.
-- `css/style.css` — desain responsif.
-- `js/app.js` — navigasi mobile dan tahun footer.
-- `vercel.json` — konfigurasi deployment statis.
+HTML statis per halaman, CSS bersama di `css/style.css`, dan renderer/interaksi di `js/site.js`. Cocok untuk Vercel static hosting. Responsif untuk desktop dan mobile.
 
-## Arsitektur lanjutan
+## Penting
 
-Website ini melayani peserta/publik. Semua administrasi akan dikembangkan terpusat di **Panel Pengelola** pada repository `Alfin354313/panel-baru`. Integrasi menggunakan API backend aman, tanpa mengekspos kunci layanan ke browser.
+Ini adalah implementasi tampilan publik tahap pertama. Belum ada sistem login, pembayaran, pendaftaran, ujian CBT, data nyata, video, notifikasi, ataupun backend. Angka, harga, diskon, jadwal, peserta, dan testimoni ilustrasi tidak ditampilkan sebagai fakta. Semua transaksi dinonaktifkan sampai backend dan kebijakan bisnis tersedia.
 
-## Pengembangan
+Ilustrasi gambar referensi belum diubah menjadi aset website; hero sementara memakai visual CSS dan emoji agar tidak memakai gambar tanpa lisensi. Seluruh administrasi nantinya melalui Panel Pengelola `Alfin354313/panel-baru`.
 
-Branch `feature/initial-site-structure` untuk review/preview sebelum merge ke `main`.
+Branch: `feature/full-public-ui-reference`; preview terlebih dahulu sebelum merge ke main.
