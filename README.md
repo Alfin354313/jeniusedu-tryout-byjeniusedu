@@ -1,22 +1,34 @@
 # Jenius Tryout by Jenius Edu
 
-Fondasi website publik untuk **Jenius Tryout**, bagian dari ekosistem Jenius Education.
+Website publik multi-halaman berdasarkan tujuh referensi UI/UX yang diberikan.
 
-## Status
+## Halaman
 
-Tahap awal: halaman publik responsif dan navigasi dasar. **Belum ada autentikasi, CBT, pembayaran, atau database aktif.** Seluruh data pada halaman adalah placeholder; tidak menampilkan angka peserta atau jadwal fiktif.
+- `index.html`: Beranda
+- `kategori.html`: Kategori Tryout
+- `jadwal.html`: Jadwal dan filter kategori, kalender navigasi
+- `harga.html`: Paket dan perbandingan fitur
+- `tentang.html`: Tentang platform
+- `faq.html`: FAQ, filter dan pencarian
+- `detail-tryout.html`: Detail kategori dan informasi program
 
-## Struktur
+## Teknologi
 
-- `index.html` — halaman publik awal dan bagian menu.
-- `css/style.css` — desain responsif.
-- `js/app.js` — navigasi mobile dan tahun footer.
-- `vercel.json` — konfigurasi deployment statis.
+HTML statis per halaman, CSS bersama di `css/style.css`, dan renderer/interaksi di `js/site.js`. Cocok untuk Vercel static hosting. Responsif untuk desktop dan mobile.
 
-## Arsitektur lanjutan
+## Penting
 
-Website ini melayani peserta/publik. Semua administrasi akan dikembangkan terpusat di **Panel Pengelola** pada repository `Alfin354313/panel-baru`. Integrasi menggunakan API backend aman, tanpa mengekspos kunci layanan ke browser.
+Ini adalah implementasi tampilan publik tahap pertama. Belum ada sistem login, pembayaran, pendaftaran, ujian CBT, data nyata, video, notifikasi, ataupun backend. Angka, harga, diskon, jadwal, peserta, dan testimoni ilustrasi tidak ditampilkan sebagai fakta. Semua transaksi dinonaktifkan sampai backend dan kebijakan bisnis tersedia.
 
-## Pengembangan
+Ilustrasi gambar referensi belum diubah menjadi aset website; hero sementara memakai visual CSS dan emoji agar tidak memakai gambar tanpa lisensi. Seluruh administrasi nantinya melalui Panel Pengelola `Alfin354313/panel-baru`.
 
-Branch `feature/initial-site-structure` untuk review/preview sebelum merge ke `main`.
+Branch: `feature/full-public-ui-reference`; preview terlebih dahulu sebelum merge ke main.
+
+
+## Portal Peserta (Prototype)
+
+New pages: `daftar.html`, `login.html`, `dashboard.html`, `ujian.html`, `hasil.html`, `pembahasan.html`, `pembayaran.html`, `profil.html`.
+
+These implement a **frontend-only demonstrator**: local nickname, five sample questions, ten-minute timer, answer navigation, automatic score, explanations, profile and a clearly disabled payment page. LocalStorage holds demo data **only on the visitor's device**. It is not real authentication: the access-code input is not checked against any server and is never stored. Do not use real personal information. The sample exam is not an official examination and must not be used for actual paid attempts.
+
+**Before production**: integrate Supabase Auth and RLS-backed tables; server-authoritative exam attempts/timing/scoring; approved question bank; admin API with role enforcement and audit trail; payment gateway with verified webhook and idempotency; user data policies, backups and abuse controls; end-to-end tests. Admin remains centralized in `panel-baru`. Do not claim payment, accounts, or CBT are live until these are complete.
