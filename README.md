@@ -32,3 +32,5 @@ New pages: `daftar.html`, `login.html`, `dashboard.html`, `ujian.html`, `hasil.h
 These implement a **frontend-only demonstrator**: local nickname, five sample questions, ten-minute timer, answer navigation, automatic score, explanations, profile and a clearly disabled payment page. LocalStorage holds demo data **only on the visitor's device**. It is not real authentication: the access-code input is not checked against any server and is never stored. Do not use real personal information. The sample exam is not an official examination and must not be used for actual paid attempts.
 
 **Before production**: integrate Supabase Auth and RLS-backed tables; server-authoritative exam attempts/timing/scoring; approved question bank; admin API with role enforcement and audit trail; payment gateway with verified webhook and idempotency; user data policies, backups and abuse controls; end-to-end tests. Admin remains centralized in `panel-baru`. Do not claim payment, accounts, or CBT are live until these are complete.
+
+<!-- Deployment sync check: 2026-10-26. No application behavior changed. -->
