@@ -14,3 +14,13 @@ body[data-page=home]{background:#fff;color:#0b275c}body[data-page=home] .contain
 .hp-carousel-controls{display:flex;justify-content:flex-end;gap:8px;margin:-4px 0 12px}.hp-carousel-controls button{width:36px;height:36px;border:1px solid #cfe2f7;background:#fff;color:#126ce5;border-radius:50%;font-size:18px;cursor:pointer}.hp-carousel-controls button:hover{background:#eaf4ff}.hp-featured{display:grid;grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:calc((100% - 39px)/4);gap:13px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:thin;padding-bottom:10px}.hp-featured-card{scroll-snap-align:start;min-width:0}@media(max-width:1100px){.hp-featured{grid-template-columns:none;grid-auto-columns:calc((100% - 13px)/2)}}@media(max-width:560px){.hp-featured{grid-template-columns:none;grid-auto-columns:82%;gap:9px}}
 
 .hp-carousel-controls{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}.hp-carousel-controls:focus-within{position:static;width:auto;height:auto;margin:0 0 12px;overflow:visible;clip:auto}.hp-featured{scrollbar-width:none;-ms-overflow-style:none;cursor:grab;touch-action:pan-x pan-y}.hp-featured::-webkit-scrollbar{display:none}.hp-featured.is-dragging{cursor:grabbing;scroll-snap-type:none;user-select:none}.hp-featured.is-dragging a{pointer-events:none}
+
+/* Ilustrasi dan ikon kartu Tryout Pilihan */
+.hp-featured-art{height:170px;background-image:url('../assets/tryout-covers.png');background-size:400% 200%;background-repeat:no-repeat;background-color:#e4f2ff;padding:0}
+.hp-featured-art:after{display:none}
+.hp-featured-art>span{position:absolute;left:12px;top:12px}
+.hp-featured-art b{position:absolute;left:12px;right:auto;bottom:10px;width:38px;height:38px;display:grid;place-items:center;border-radius:10px;background:#edf7ff;color:#126de2;box-shadow:0 3px 10px #092e5b1a}
+.hp-featured-art b svg{width:22px;height:22px}
+.hp-art-0{background-position:0% 0%}.hp-art-1{background-position:33.333% 0%}.hp-art-2{background-position:66.667% 0%}.hp-art-3{background-position:100% 0%}
+.hp-art-4{background-position:0% 100%}.hp-art-5{background-position:33.333% 100%}.hp-art-6{background-position:66.667% 100%}.hp-art-7{background-position:100% 100%}
+@media(max-width:560px){.hp-featured-art{height:155px}}
