@@ -69,3 +69,10 @@ body[data-page="kategori"] .nav .hp-mobile-account{display:none}
 @media(max-width:760px){body[data-page="kategori"] .header-inner{min-height:68px}body[data-page="kategori"] .brand{min-width:0}body[data-page="kategori"] .nav.open .hp-mobile-account{display:block}}
 
 .category-benefit-list svg{width:22px;height:22px;display:block}
+
+/* Sejajarkan ikon dan keterangan keunggulan */
+.category-benefit-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;flex:0 1 510px}
+.category-benefit-list>div{max-width:none;min-width:0;display:flex;flex-direction:column;align-items:center;text-align:center}
+.category-benefit-list p{max-width:145px;margin:9px 0 0;line-height:1.45}
+@media(max-width:760px){.category-benefit-list{flex:none;width:100%}}
+@media(max-width:440px){.category-benefit-list{gap:8px}.category-benefit-list p{font-size:12px}}
