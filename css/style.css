@@ -11,3 +11,44 @@
 .category-price{display:inline-block;margin-top:9px;color:#075ed1;font-weight:800;font-size:15px}
 .price-category-grid .price-card{min-width:0}
 .price-category-grid .price-card .btn{margin-top:auto}
+
+/* Halaman kategori Jenius Tryout */
+.category-hero{background:linear-gradient(105deg,#082453,#064d9b);overflow:hidden}
+.category-hero-inner{min-height:350px;position:relative;display:flex;align-items:center}
+.category-hero-copy{width:55%;position:relative;z-index:1;padding:52px 0;color:#fff}
+.category-kicker{font-size:11px;letter-spacing:.15em;font-weight:800;color:#84caff}
+.category-hero h1{font-size:clamp(34px,4vw,54px);line-height:1.12;letter-spacing:-.035em;margin:16px 0;color:white}
+.category-hero h1 span{color:#8fd0ff}
+.category-hero p{max-width:490px;line-height:1.65;color:#e0efff;margin:0;font-size:16px}
+.category-hero-photo{position:absolute;right:-5%;inset-block:0;width:58%;background:linear-gradient(90deg,#084a92 0%,transparent 40%),url('https://raw.githubusercontent.com/Alfin354313/Bimbel-Jenius-Education/main/jenius-portal-images/portal-murid.jpg') center/cover}
+.category-section{background:linear-gradient(#edf7ff,#f9fcff);padding:30px 0 42px}
+.category-search{max-width:920px;margin:0 auto 25px;display:flex;align-items:center;gap:12px;padding:8px 8px 8px 18px;background:white;border:1px solid #cde2fc;border-radius:12px;box-shadow:0 7px 20px #153d7910}
+.category-search-label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.category-search>span{font-size:26px;color:#6f87ac;line-height:1}
+.category-search input{min-width:0;flex:1;border:0;outline:0;padding:10px 0;background:transparent;color:#12346c;font-size:14px}
+.category-search input:focus-visible{outline:2px solid #287fff;outline-offset:3px}
+.category-search button{border:0;border-radius:8px;background:#096af1;color:white;font-weight:700;padding:12px 24px}
+.category-grid{gap:17px}
+.category-card.cat{display:flex;flex-direction:column;justify-content:flex-start;padding:0;min-height:0;border-radius:13px;background:#fff;box-shadow:0 8px 25px #174b8610;overflow:hidden}
+.category-card.cat:nth-child(n){background:#fff}
+.category-photo{position:relative;aspect-ratio:1.65;background-image:url('../assets/tryout-covers.png');background-size:400% auto;background-repeat:no-repeat;background-color:#dcefff}
+.category-photo-0{background-position:0 0}.category-photo-1{background-position:33.333% 0}.category-photo-2{background-position:66.667% 0}.category-photo-3{background-position:100% 0}
+.category-photo-4{background-position:0 100%}.category-photo-5{background-position:33.333% 100%}.category-photo-6{background-position:66.667% 100%}.category-photo-7{background-position:100% 100%}
+.category-card-icon{position:absolute;left:14px;bottom:10px;display:grid;place-items:center;width:40px;height:40px;border-radius:11px;background:#f5fbff;color:#086af2;box-shadow:0 4px 14px #123d6930}
+.category-card-icon svg{width:21px;height:21px}
+.category-card-body{padding:17px;display:flex;flex-direction:column;align-items:flex-start;flex:1}
+.category-card h3{margin:0;color:#0b285a;font-size:18px}
+.category-card.cat p{margin:7px 0 14px;color:#657da3;font-size:13px;line-height:1.5;flex:1}
+.category-card .category-price{font-size:20px;margin:0 0 9px}
+.category-more{color:#0869ef;font-size:13px;font-weight:750}
+.category-no-results{padding:25px;text-align:center;color:#59749e}
+.category-benefits{display:flex;align-items:center;justify-content:space-between;gap:30px;background:#e6f4ff;border-radius:18px;margin-top:34px;padding:30px}
+.category-benefits h2{font-size:24px;line-height:1.25;margin:10px 0 0;color:#09295e}
+.category-benefits h2 span{color:#0871f5}
+.category-benefit-list{display:flex;gap:30px}
+.category-benefit-list>div{max-width:150px}
+.category-benefit-list span{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:#fff;color:#0871f5;font-weight:800;font-size:20px}
+.category-benefit-list p{font-size:13px;color:#4e6b96;line-height:1.45;margin:8px 0 0}
+body[data-page="kategori"] .hp-mobile-account{display:none}
+@media(max-width:760px){.category-hero-inner{min-height:300px}.category-hero-copy{width:75%;padding:45px 0}.category-hero-photo{width:80%;opacity:.52;background-image:linear-gradient(90deg,#084a92 0%,transparent 85%),url('https://raw.githubusercontent.com/Alfin354313/Bimbel-Jenius-Education/main/jenius-portal-images/portal-murid.jpg')}.category-benefits{align-items:flex-start;flex-direction:column}.category-benefit-list{gap:18px;flex-wrap:wrap}body[data-page="kategori"] .hp-mobile-account{display:block}}
+@media(max-width:440px){.category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.category-card-body{padding:12px}.category-card h3{font-size:15px}.category-card.cat p{font-size:12px}.category-card .category-price{font-size:17px}.category-search button{padding:11px 14px}.category-hero-copy{width:95%}}
