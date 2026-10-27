@@ -76,3 +76,54 @@ body[data-page="kategori"] .nav .hp-mobile-account{display:none}
 .category-benefit-list p{max-width:145px;margin:9px 0 0;line-height:1.45}
 @media(max-width:760px){.category-benefit-list{flex:none;width:100%}}
 @media(max-width:440px){.category-benefit-list{gap:8px}.category-benefit-list p{font-size:12px}}
+
+/* Samakan navigasi kategori dengan beranda */
+body[data-page="jadwal"] .container{width:min(1220px,92%)}
+body[data-page="jadwal"] .header{position:relative;background:#f8fcff}
+body[data-page="jadwal"] .header-inner{min-height:70px;gap:18px}
+body[data-page="jadwal"] .brand{min-width:210px}
+body[data-page="jadwal"] .brand strong{font-size:21px;color:#092a60}
+body[data-page="jadwal"] .brand small{font-size:10px}
+body[data-page="jadwal"] .search{display:none}
+body[data-page="jadwal"] .header-actions{margin-left:auto}
+body[data-page="jadwal"] .nav a{padding:10px 12px;border-radius:0}
+body[data-page="jadwal"] .nav a.active{background:none;border-bottom:2px solid #1978f1}
+body[data-page="jadwal"] .nav .hp-mobile-account{display:none}
+@media(max-width:1100px){body[data-page="jadwal"] .header-inner{gap:10px}body[data-page="jadwal"] .brand{min-width:175px}body[data-page="jadwal"] .nav a{padding:10px 8px}}
+@media(max-width:760px){body[data-page="jadwal"] .header-inner{min-height:68px}body[data-page="jadwal"] .brand{min-width:0}body[data-page="jadwal"] .nav.open .hp-mobile-account{display:block}}
+
+
+
+/* Halaman jadwal */
+.schedule-page{padding:28px 0 42px;background:linear-gradient(#eef8ff,#fff 250px)}
+.schedule-search{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #d5e7fb;border-radius:12px;padding:13px 17px;box-shadow:0 6px 18px #153d7908}
+.schedule-search svg{width:20px;height:20px;color:#53739d;flex:none}
+.schedule-search input{width:100%;border:0;outline:0;color:#15366b;background:transparent}
+.schedule-search input:focus-visible{outline:2px solid #287fff;outline-offset:3px}
+.schedule-filters{display:flex;gap:9px;flex-wrap:wrap;margin:16px 0 32px}
+.schedule-filter{border:1px solid #d6e8fb;color:#284c7c;background:#eaf5ff;border-radius:30px;padding:9px 17px;font-size:13px}
+.schedule-filter.selected{background:#096bf0;border-color:#096bf0;color:#fff}
+.schedule-heading{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:18px}
+.schedule-heading h2{margin:0;color:#0a285b;font-size:26px;letter-spacing:-.03em}
+.schedule-heading span{display:block;width:36px;height:3px;border-radius:4px;background:#0873f4;margin-top:9px}
+.schedule-heading p{color:#086bec;font-weight:700;font-size:13px}
+.schedule-content{display:grid;grid-template-columns:1.6fr 1fr;gap:18px}
+.schedule-empty,.schedule-calendar{border:1px solid #dceafa;border-radius:14px;min-width:0}
+.schedule-empty{min-height:310px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px;background:#f5faff}
+.schedule-empty-icon{width:98px;height:98px;border-radius:28px;background:#e0efff;display:grid;place-items:center;color:#0872f3}
+.schedule-empty-icon svg{width:56px;height:56px}
+.schedule-empty h3{font-size:21px;color:#09275a;margin:20px 0 7px}
+.schedule-empty p{margin:0;color:#647fa5;line-height:1.5;font-size:14px}
+.schedule-calendar{padding:20px;background:#fff}
+.schedule-calendar .monthbar{margin-bottom:18px}
+.schedule-calendar .monthbar button{color:#086bf0;font-size:18px}
+.schedule-calendar .calendar-grid{gap:5px}
+.schedule-calendar .calendar-grid span{background:#f1f7fc;border-radius:6px;padding:10px 2px;color:#45638f}
+.schedule-calendar .calendar-grid span:has(b){background:transparent;color:#163b74}
+.schedule-calendar p{font-size:12px;text-align:center;color:#6e86a5;margin:14px 0 0}
+.schedule-notice{display:flex;align-items:center;gap:20px;margin-top:18px;padding:22px 26px;background:#e7f4ff;border-radius:15px}
+.schedule-notice-icon{display:grid;place-items:center;width:48px;height:48px;flex:none;border-radius:50%;background:#c8e5ff;color:#086cf0;font-size:24px;font-weight:800}
+.schedule-notice h3{margin:0 0 5px;font-size:17px;color:#0769e9}
+.schedule-notice p{margin:0;color:#557198;font-size:13px;line-height:1.6;max-width:680px}
+@media(max-width:760px){.schedule-content{grid-template-columns:1fr}.schedule-heading{align-items:flex-start}.schedule-heading p{display:none}.schedule-empty{min-height:240px}.schedule-filters{gap:7px}.schedule-filter{padding:8px 13px}}
+@media(max-width:440px){.schedule-notice{padding:18px;align-items:flex-start}.schedule-notice-icon{width:38px;height:38px;font-size:20px}}
