@@ -26,3 +26,5 @@ body[data-page=home]{background:#fff;color:#0b275c}body[data-page=home] .contain
 @media(max-width:560px){.hp-featured-art{height:155px}}
 
 .hp-benefit-icon svg{width:26px;height:26px;display:block}
+
+body[data-page=home] .nav .hp-mobile-account{display:none}@media(max-width:800px){body[data-page=home] .nav.open .hp-mobile-account{display:block}}
