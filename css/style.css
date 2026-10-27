@@ -164,3 +164,48 @@ body[data-page="tentang"] .category-hero-photo{background-image:linear-gradient(
 .about-action{text-align:center;margin-top:28px}
 .about-action p{color:#6f86a4;font-size:12px;margin:12px 0 0}
 @media(max-width:760px){body[data-page="tentang"] .category-hero-photo{background-image:linear-gradient(90deg,#084a92 0%,transparent 85%),url('../assets/tentang-tryout.webp')}.about-page{padding:38px 0}.about-benefits{grid-template-columns:1fr}.about-intro p{font-size:14px}}
+
+/* Samakan navigasi kategori dengan beranda */
+body[data-page="faq"] .container{width:min(1220px,92%)}
+body[data-page="faq"] .header{position:relative;background:#f8fcff}
+body[data-page="faq"] .header-inner{min-height:70px;gap:18px}
+body[data-page="faq"] .brand{min-width:210px}
+body[data-page="faq"] .brand strong{font-size:21px;color:#092a60}
+body[data-page="faq"] .brand small{font-size:10px}
+body[data-page="faq"] .search{display:none}
+body[data-page="faq"] .header-actions{margin-left:auto}
+body[data-page="faq"] .nav a{padding:10px 12px;border-radius:0}
+body[data-page="faq"] .nav a.active{background:none;border-bottom:2px solid #1978f1}
+body[data-page="faq"] .nav .hp-mobile-account{display:none}
+@media(max-width:1100px){body[data-page="faq"] .header-inner{gap:10px}body[data-page="faq"] .brand{min-width:175px}body[data-page="faq"] .nav a{padding:10px 8px}}
+@media(max-width:760px){body[data-page="faq"] .header-inner{min-height:68px}body[data-page="faq"] .brand{min-width:0}body[data-page="faq"] .nav.open .hp-mobile-account{display:block}}
+
+
+
+body[data-page="faq"] .category-hero-photo{background-image:linear-gradient(90deg,#084a92 0%,transparent 40%),url('../assets/faq-tryout.webp');background-position:center}
+.faq-page{padding:30px 0 50px;background:linear-gradient(#eaf6ff,#f7fcff)}
+.faq-search{max-width:870px;margin:0 auto 18px;display:flex;align-items:center;gap:12px;padding:14px 18px;border:1px solid #cfe3fb;border-radius:12px;background:#fff;box-shadow:0 6px 18px #174b8610}
+.faq-search svg{width:21px;height:21px;color:#53739d;flex:none}
+.faq-search input{flex:1;min-width:0;border:0;outline:0;color:#163b74}
+.faq-search input:focus-visible{outline:2px solid #287fff;outline-offset:3px}
+.faq-filter-row{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:0 0 24px}
+.faq-filter-row .chip{border-radius:25px;padding:9px 17px}
+.faq-page .faq-grid{grid-template-columns:minmax(0,1.7fr) minmax(260px,.8fr);align-items:start}
+.faq-list-panel h2,.faq-help h2{font-size:22px;color:#09275a;margin:0 0 6px}
+.faq-intro,.faq-help p{font-size:13px;color:#647b9e;line-height:1.6;margin:0 0 18px}
+.faq-page .faq-item{background:#fff;margin:8px 0;border-color:#e1edf9}
+.faq-page .faq-item[open]{background:#f2f8ff;border-color:#b8d8ff}
+.faq-page .faq-item summary{display:flex;align-items:center;gap:12px;padding:10px;list-style:none}
+.faq-page .faq-item summary::-webkit-details-marker{display:none}
+.faq-page .faq-item summary:after{content:"⌄";margin-left:auto;color:#3274c5;font-size:19px}
+.faq-question-icon{display:grid;place-items:center;width:36px;height:36px;flex:none;border-radius:10px;background:#e9f5ff;color:#086bf0;font-size:19px;font-weight:800}
+.faq-page .faq-item p{padding:0 16px 16px 58px;margin:0}
+.faq-help{display:flex;gap:15px;background:#f5faff}
+.faq-help .about-kicker{font-size:10px}
+.faq-help h2{font-size:20px;margin-top:8px}
+.faq-help .btn{white-space:normal;text-align:center}
+.faq-more{margin-top:14px}
+.faq-more h3{font-size:16px;margin:0 0 10px}
+.faq-more a{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #e8f0fa;color:#315986;font-size:13px}
+.faq-more a:last-child{border:0}
+@media(max-width:760px){body[data-page="faq"] .category-hero-photo{background-image:linear-gradient(90deg,#084a92 0%,transparent 85%),url('../assets/faq-tryout.webp')}.faq-page .faq-grid{grid-template-columns:1fr}.faq-page{padding:24px 0 36px}.faq-filter-row{justify-content:flex-start}.faq-list-panel h2{font-size:19px}}
