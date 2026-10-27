@@ -4,3 +4,6 @@
 
 /* Premium icon treatments */
 .brand-icon{width:43px;height:43px;display:grid;place-items:center;color:#076cf4}.brand-icon svg{width:42px;height:42px;filter:drop-shadow(0 5px 6px #1168eb30)}.feature-icon{font-family:Arial,sans-serif;font-size:29px;font-weight:900;background:linear-gradient(135deg,#d9ecff,#f2f8ff);color:#0069f6;box-shadow:inset 0 0 0 1px #c9e3ff}.cat .emoji{font-size:47px}.cat .arrow{box-shadow:0 6px 15px #0567ed35}.cat:nth-child(2) .arrow,.cat:nth-child(7) .arrow{background:#08b79a}.cat:nth-child(3) .arrow,.cat:nth-child(6) .arrow{background:#fa9512}.cat:nth-child(4) .arrow{background:#804af4}.cat:nth-child(5) .arrow{background:#f34e67}.price-card .icon{display:grid;place-items:center;width:58px;height:58px;border-radius:17px;background:linear-gradient(135deg,#d8edff,#f5faff);box-shadow:inset 0 0 0 1px #d1e7ff}.feature:hover .feature-icon{transform:scale(1.05);transition:transform .2s ease}
+
+/* Shared illustration for Jenius Tryout hero */
+.hero-art .student-illustration{width:min(100%,410px);height:320px;object-fit:contain;position:relative;z-index:2;filter:drop-shadow(0 16px 14px #06499728)}@media(max-width:700px){.hero-art .student-illustration{height:240px;max-width:300px}}
