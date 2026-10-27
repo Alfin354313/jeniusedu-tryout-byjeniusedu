@@ -4,3 +4,208 @@
 
 /* Premium icon treatments */
 .brand-icon{width:43px;height:43px;display:grid;place-items:center;color:#076cf4}.brand-icon svg{width:42px;height:42px;filter:drop-shadow(0 5px 6px #1168eb30)}.feature-icon{font-family:Arial,sans-serif;font-size:29px;font-weight:900;background:linear-gradient(135deg,#d9ecff,#f2f8ff);color:#0069f6;box-shadow:inset 0 0 0 1px #c9e3ff}.cat .emoji{font-size:47px}.cat .arrow{box-shadow:0 6px 15px #0567ed35}.cat:nth-child(2) .arrow,.cat:nth-child(7) .arrow{background:#08b79a}.cat:nth-child(3) .arrow,.cat:nth-child(6) .arrow{background:#fa9512}.cat:nth-child(4) .arrow{background:#804af4}.cat:nth-child(5) .arrow{background:#f34e67}.price-card .icon{display:grid;place-items:center;width:58px;height:58px;border-radius:17px;background:linear-gradient(135deg,#d8edff,#f5faff);box-shadow:inset 0 0 0 1px #d1e7ff}.feature:hover .feature-icon{transform:scale(1.05);transition:transform .2s ease}
+
+/* Harga pada kartu kategori */
+.cat .emoji,.category-icon{width:52px;height:52px;display:grid;place-items:center;border-radius:14px;background:#e4f1ff;color:#0868ef;filter:none}
+.cat .emoji svg,.category-icon svg{width:27px;height:27px}
+.category-price{display:inline-block;margin-top:9px;color:#075ed1;font-weight:800;font-size:15px}
+.price-category-grid .price-card{min-width:0}
+.price-category-grid .price-card .btn{margin-top:auto}
+
+/* Halaman kategori Jenius Tryout */
+.category-hero{background:linear-gradient(105deg,#082453,#064d9b);overflow:hidden}
+.category-hero-inner{min-height:350px;position:relative;display:flex;align-items:center}
+.category-hero-copy{width:55%;position:relative;z-index:1;padding:52px 0;color:#fff}
+.category-kicker{font-size:11px;letter-spacing:.15em;font-weight:800;color:#84caff}
+.category-hero h1{font-size:clamp(34px,4vw,54px);line-height:1.12;letter-spacing:-.035em;margin:16px 0;color:white}
+.category-hero h1 span{color:#8fd0ff}
+.category-hero p{max-width:490px;line-height:1.65;color:#e0efff;margin:0;font-size:16px}
+.category-hero-photo{position:absolute;right:-5%;inset-block:0;width:58%;background:linear-gradient(90deg,#084a92 0%,transparent 40%),url('https://raw.githubusercontent.com/Alfin354313/Bimbel-Jenius-Education/main/jenius-portal-images/portal-murid.jpg') center/cover}
+.category-section{background:linear-gradient(#edf7ff,#f9fcff);padding:30px 0 42px}
+.category-search{max-width:920px;margin:0 auto 25px;display:flex;align-items:center;gap:12px;padding:8px 8px 8px 18px;background:white;border:1px solid #cde2fc;border-radius:12px;box-shadow:0 7px 20px #153d7910}
+.category-search-label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.category-search>span{font-size:26px;color:#6f87ac;line-height:1}
+.category-search input{min-width:0;flex:1;border:0;outline:0;padding:10px 0;background:transparent;color:#12346c;font-size:14px}
+.category-search input:focus-visible{outline:2px solid #287fff;outline-offset:3px}
+.category-search button{border:0;border-radius:8px;background:#096af1;color:white;font-weight:700;padding:12px 24px}
+.category-grid{gap:17px}
+.category-card.cat{display:flex;flex-direction:column;justify-content:flex-start;padding:0;min-height:0;border-radius:13px;background:#fff;box-shadow:0 8px 25px #174b8610;overflow:hidden}
+.category-card.cat:nth-child(n){background:#fff}
+.category-photo{position:relative;aspect-ratio:1.65;background-image:url('../assets/tryout-covers.png');background-size:400% auto;background-repeat:no-repeat;background-color:#dcefff}
+.category-photo-0{background-position:0 0}.category-photo-1{background-position:33.333% 0}.category-photo-2{background-position:66.667% 0}.category-photo-3{background-position:100% 0}
+.category-photo-4{background-position:0 100%}.category-photo-5{background-position:33.333% 100%}.category-photo-6{background-position:66.667% 100%}.category-photo-7{background-position:100% 100%}
+.category-card-icon{position:absolute;left:14px;bottom:10px;display:grid;place-items:center;width:40px;height:40px;border-radius:11px;background:#f5fbff;color:#086af2;box-shadow:0 4px 14px #123d6930}
+.category-card-icon svg{width:21px;height:21px}
+.category-card-body{padding:17px;display:flex;flex-direction:column;align-items:flex-start;flex:1}
+.category-card h3{margin:0;color:#0b285a;font-size:18px}
+.category-card.cat p{margin:7px 0 14px;color:#657da3;font-size:13px;line-height:1.5;flex:1}
+.category-card .category-price{font-size:20px;margin:0 0 9px}
+.category-more{color:#0869ef;font-size:13px;font-weight:750}
+.category-no-results{padding:25px;text-align:center;color:#59749e}
+.category-benefits{display:flex;align-items:center;justify-content:space-between;gap:30px;background:#e6f4ff;border-radius:18px;margin-top:34px;padding:30px}
+.category-benefits h2{font-size:24px;line-height:1.25;margin:10px 0 0;color:#09295e}
+.category-benefits h2 span{color:#0871f5}
+.category-benefit-list{display:flex;gap:30px}
+.category-benefit-list>div{max-width:150px}
+.category-benefit-list span{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:#fff;color:#0871f5;font-weight:800;font-size:20px}
+.category-benefit-list p{font-size:13px;color:#4e6b96;line-height:1.45;margin:8px 0 0}
+body[data-page="kategori"] .hp-mobile-account{display:none}
+@media(max-width:760px){.category-hero-inner{min-height:300px}.category-hero-copy{width:75%;padding:45px 0}.category-hero-photo{width:80%;opacity:.52;background-image:linear-gradient(90deg,#084a92 0%,transparent 85%),url('https://raw.githubusercontent.com/Alfin354313/Bimbel-Jenius-Education/main/jenius-portal-images/portal-murid.jpg')}.category-benefits{align-items:flex-start;flex-direction:column}.category-benefit-list{gap:18px;flex-wrap:wrap}body[data-page="kategori"] .hp-mobile-account{display:block}}
+@media(max-width:440px){.category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.category-card-body{padding:12px}.category-card h3{font-size:15px}.category-card.cat p{font-size:12px}.category-card .category-price{font-size:17px}.category-search button{padding:11px 14px}.category-hero-copy{width:95%}}
+
+/* Samakan navigasi kategori dengan beranda */
+body[data-page="kategori"] .container{width:min(1220px,92%)}
+body[data-page="kategori"] .header{position:relative;background:#f8fcff}
+body[data-page="kategori"] .header-inner{min-height:70px;gap:18px}
+body[data-page="kategori"] .brand{min-width:210px}
+body[data-page="kategori"] .brand strong{font-size:21px;color:#092a60}
+body[data-page="kategori"] .brand small{font-size:10px}
+body[data-page="kategori"] .search{display:none}
+body[data-page="kategori"] .header-actions{margin-left:auto}
+body[data-page="kategori"] .nav a{padding:10px 12px;border-radius:0}
+body[data-page="kategori"] .nav a.active{background:none;border-bottom:2px solid #1978f1}
+body[data-page="kategori"] .nav .hp-mobile-account{display:none}
+@media(max-width:1100px){body[data-page="kategori"] .header-inner{gap:10px}body[data-page="kategori"] .brand{min-width:175px}body[data-page="kategori"] .nav a{padding:10px 8px}}
+@media(max-width:760px){body[data-page="kategori"] .header-inner{min-height:68px}body[data-page="kategori"] .brand{min-width:0}body[data-page="kategori"] .nav.open .hp-mobile-account{display:block}}
+
+.category-benefit-list svg{width:22px;height:22px;display:block}
+
+/* Sejajarkan ikon dan keterangan keunggulan */
+.category-benefit-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;flex:0 1 510px}
+.category-benefit-list>div{max-width:none;min-width:0;display:flex;flex-direction:column;align-items:center;text-align:center}
+.category-benefit-list p{max-width:145px;margin:9px 0 0;line-height:1.45}
+@media(max-width:760px){.category-benefit-list{flex:none;width:100%}}
+@media(max-width:440px){.category-benefit-list{gap:8px}.category-benefit-list p{font-size:12px}}
+
+/* Samakan navigasi kategori dengan beranda */
+body[data-page="jadwal"] .container{width:min(1220px,92%)}
+body[data-page="jadwal"] .header{position:relative;background:#f8fcff}
+body[data-page="jadwal"] .header-inner{min-height:70px;gap:18px}
+body[data-page="jadwal"] .brand{min-width:210px}
+body[data-page="jadwal"] .brand strong{font-size:21px;color:#092a60}
+body[data-page="jadwal"] .brand small{font-size:10px}
+body[data-page="jadwal"] .search{display:none}
+body[data-page="jadwal"] .header-actions{margin-left:auto}
+body[data-page="jadwal"] .nav a{padding:10px 12px;border-radius:0}
+body[data-page="jadwal"] .nav a.active{background:none;border-bottom:2px solid #1978f1}
+body[data-page="jadwal"] .nav .hp-mobile-account{display:none}
+@media(max-width:1100px){body[data-page="jadwal"] .header-inner{gap:10px}body[data-page="jadwal"] .brand{min-width:175px}body[data-page="jadwal"] .nav a{padding:10px 8px}}
+@media(max-width:760px){body[data-page="jadwal"] .header-inner{min-height:68px}body[data-page="jadwal"] .brand{min-width:0}body[data-page="jadwal"] .nav.open .hp-mobile-account{display:block}}
+
+
+
+/* Halaman jadwal */
+.schedule-page{padding:28px 0 42px;background:linear-gradient(#eef8ff,#fff 250px)}
+.schedule-search{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #d5e7fb;border-radius:12px;padding:13px 17px;box-shadow:0 6px 18px #153d7908}
+.schedule-search svg{width:20px;height:20px;color:#53739d;flex:none}
+.schedule-search input{width:100%;border:0;outline:0;color:#15366b;background:transparent}
+.schedule-search input:focus-visible{outline:2px solid #287fff;outline-offset:3px}
+.schedule-filters{display:flex;gap:9px;flex-wrap:wrap;margin:16px 0 32px}
+.schedule-filter{border:1px solid #d6e8fb;color:#284c7c;background:#eaf5ff;border-radius:30px;padding:9px 17px;font-size:13px}
+.schedule-filter.selected{background:#096bf0;border-color:#096bf0;color:#fff}
+.schedule-heading{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:18px}
+.schedule-heading h2{margin:0;color:#0a285b;font-size:26px;letter-spacing:-.03em}
+.schedule-heading span{display:block;width:36px;height:3px;border-radius:4px;background:#0873f4;margin-top:9px}
+.schedule-heading p{color:#086bec;font-weight:700;font-size:13px}
+.schedule-content{display:grid;grid-template-columns:1.6fr 1fr;gap:18px}
+.schedule-empty,.schedule-calendar{border:1px solid #dceafa;border-radius:14px;min-width:0}
+.schedule-empty{min-height:310px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px;background:#f5faff}
+.schedule-empty-icon{width:98px;height:98px;border-radius:28px;background:#e0efff;display:grid;place-items:center;color:#0872f3}
+.schedule-empty-icon svg{width:56px;height:56px}
+.schedule-empty h3{font-size:21px;color:#09275a;margin:20px 0 7px}
+.schedule-empty p{margin:0;color:#647fa5;line-height:1.5;font-size:14px}
+.schedule-calendar{padding:20px;background:#fff}
+.schedule-calendar .monthbar{margin-bottom:18px}
+.schedule-calendar .monthbar button{color:#086bf0;font-size:18px}
+.schedule-calendar .calendar-grid{gap:5px}
+.schedule-calendar .calendar-grid span{background:#f1f7fc;border-radius:6px;padding:10px 2px;color:#45638f}
+.schedule-calendar .calendar-grid span:has(b){background:transparent;color:#163b74}
+.schedule-calendar p{font-size:12px;text-align:center;color:#6e86a5;margin:14px 0 0}
+.schedule-notice{display:flex;align-items:center;gap:20px;margin-top:18px;padding:22px 26px;background:#e7f4ff;border-radius:15px}
+.schedule-notice-icon{display:grid;place-items:center;width:48px;height:48px;flex:none;border-radius:50%;background:#c8e5ff;color:#086cf0;font-size:24px;font-weight:800}
+.schedule-notice h3{margin:0 0 5px;font-size:17px;color:#0769e9}
+.schedule-notice p{margin:0;color:#557198;font-size:13px;line-height:1.6;max-width:680px}
+@media(max-width:760px){.schedule-content{grid-template-columns:1fr}.schedule-heading{align-items:flex-start}.schedule-heading p{display:none}.schedule-empty{min-height:240px}.schedule-filters{gap:7px}.schedule-filter{padding:8px 13px}}
+@media(max-width:440px){.schedule-notice{padding:18px;align-items:flex-start}.schedule-notice-icon{width:38px;height:38px;font-size:20px}}
+
+/* Banner khusus jadwal */
+body[data-page="jadwal"] .category-hero-photo{background-image:linear-gradient(90deg,#084a92 0%,transparent 40%),url('../assets/jadwal-tryout.webp');background-position:center}
+@media(max-width:760px){body[data-page="jadwal"] .category-hero-photo{background-image:linear-gradient(90deg,#084a92 0%,transparent 85%),url('../assets/jadwal-tryout.webp')}}
+
+/* Samakan navigasi kategori dengan beranda */
+body[data-page="tentang"] .container{width:min(1220px,92%)}
+body[data-page="tentang"] .header{position:relative;background:#f8fcff}
+body[data-page="tentang"] .header-inner{min-height:70px;gap:18px}
+body[data-page="tentang"] .brand{min-width:210px}
+body[data-page="tentang"] .brand strong{font-size:21px;color:#092a60}
+body[data-page="tentang"] .brand small{font-size:10px}
+body[data-page="tentang"] .search{display:none}
+body[data-page="tentang"] .header-actions{margin-left:auto}
+body[data-page="tentang"] .nav a{padding:10px 12px;border-radius:0}
+body[data-page="tentang"] .nav a.active{background:none;border-bottom:2px solid #1978f1}
+body[data-page="tentang"] .nav .hp-mobile-account{display:none}
+@media(max-width:1100px){body[data-page="tentang"] .header-inner{gap:10px}body[data-page="tentang"] .brand{min-width:175px}body[data-page="tentang"] .nav a{padding:10px 8px}}
+@media(max-width:760px){body[data-page="tentang"] .header-inner{min-height:68px}body[data-page="tentang"] .brand{min-width:0}body[data-page="tentang"] .nav.open .hp-mobile-account{display:block}}
+
+
+
+body[data-page="tentang"] .category-hero-photo{background-image:linear-gradient(90deg,#084a92 0%,transparent 40%),url('../assets/tentang-tryout.webp');background-position:center}
+.about-page{padding:56px 0 70px;background:linear-gradient(160deg,#fff 65%,#e9f6ff)}
+.about-intro{max-width:800px;margin:0 auto 32px;text-align:center}
+.about-kicker{color:#1779ef;font-size:12px;font-weight:800;letter-spacing:.12em}
+.about-intro h2{color:#09275a;font-size:clamp(27px,3vw,38px);letter-spacing:-.035em;margin:12px 0}
+.about-intro p{font-size:16px;color:#59729a;line-height:1.7;margin:0}
+.about-benefits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.about-benefits article{display:flex;align-items:flex-start;gap:16px;padding:22px;background:#fff;border:1px solid #dceafa;border-radius:15px}
+.about-icon{display:grid;place-items:center;flex:none;width:52px;height:52px;border-radius:50%;background:#e7f4ff;color:#076cf3}
+.about-icon svg{width:25px;height:25px}
+.about-benefits h3{color:#0b285a;font-size:16px;margin:2px 0 8px}
+.about-benefits p{color:#627a9e;font-size:13px;line-height:1.6;margin:0}
+.about-action{text-align:center;margin-top:28px}
+.about-action p{color:#6f86a4;font-size:12px;margin:12px 0 0}
+@media(max-width:760px){body[data-page="tentang"] .category-hero-photo{background-image:linear-gradient(90deg,#084a92 0%,transparent 85%),url('../assets/tentang-tryout.webp')}.about-page{padding:38px 0}.about-benefits{grid-template-columns:1fr}.about-intro p{font-size:14px}}
+
+/* Samakan navigasi kategori dengan beranda */
+body[data-page="faq"] .container{width:min(1220px,92%)}
+body[data-page="faq"] .header{position:relative;background:#f8fcff}
+body[data-page="faq"] .header-inner{min-height:70px;gap:18px}
+body[data-page="faq"] .brand{min-width:210px}
+body[data-page="faq"] .brand strong{font-size:21px;color:#092a60}
+body[data-page="faq"] .brand small{font-size:10px}
+body[data-page="faq"] .search{display:none}
+body[data-page="faq"] .header-actions{margin-left:auto}
+body[data-page="faq"] .nav a{padding:10px 12px;border-radius:0}
+body[data-page="faq"] .nav a.active{background:none;border-bottom:2px solid #1978f1}
+body[data-page="faq"] .nav .hp-mobile-account{display:none}
+@media(max-width:1100px){body[data-page="faq"] .header-inner{gap:10px}body[data-page="faq"] .brand{min-width:175px}body[data-page="faq"] .nav a{padding:10px 8px}}
+@media(max-width:760px){body[data-page="faq"] .header-inner{min-height:68px}body[data-page="faq"] .brand{min-width:0}body[data-page="faq"] .nav.open .hp-mobile-account{display:block}}
+
+
+
+body[data-page="faq"] .category-hero-photo{background-image:linear-gradient(90deg,#084a92 0%,transparent 40%),url('../assets/faq-tryout.webp');background-position:center}
+.faq-page{padding:30px 0 50px;background:linear-gradient(#eaf6ff,#f7fcff)}
+.faq-search{max-width:870px;margin:0 auto 18px;display:flex;align-items:center;gap:12px;padding:14px 18px;border:1px solid #cfe3fb;border-radius:12px;background:#fff;box-shadow:0 6px 18px #174b8610}
+.faq-search svg{width:21px;height:21px;color:#53739d;flex:none}
+.faq-search input{flex:1;min-width:0;border:0;outline:0;color:#163b74}
+.faq-search input:focus-visible{outline:2px solid #287fff;outline-offset:3px}
+.faq-filter-row{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:0 0 24px}
+.faq-filter-row .chip{border-radius:25px;padding:9px 17px}
+.faq-page .faq-grid{grid-template-columns:minmax(0,1.7fr) minmax(260px,.8fr);align-items:start}
+.faq-list-panel h2,.faq-help h2{font-size:22px;color:#09275a;margin:0 0 6px}
+.faq-intro,.faq-help p{font-size:13px;color:#647b9e;line-height:1.6;margin:0 0 18px}
+.faq-page .faq-item{background:#fff;margin:8px 0;border-color:#e1edf9}
+.faq-page .faq-item[open]{background:#f2f8ff;border-color:#b8d8ff}
+.faq-page .faq-item summary{display:flex;align-items:center;gap:12px;padding:10px;list-style:none}
+.faq-page .faq-item summary::-webkit-details-marker{display:none}
+.faq-page .faq-item summary:after{content:"⌄";margin-left:auto;color:#3274c5;font-size:19px}
+.faq-question-icon{display:grid;place-items:center;width:36px;height:36px;flex:none;border-radius:10px;background:#e9f5ff;color:#086bf0;font-size:19px;font-weight:800}
+.faq-page .faq-item p{padding:0 16px 16px 58px;margin:0}
+.faq-help{display:flex;gap:15px;background:#f5faff}
+.faq-help .about-kicker{font-size:10px}
+.faq-help h2{font-size:20px;margin-top:8px}
+.faq-help .btn{white-space:normal;text-align:center}
+.faq-more{margin-top:14px}
+.faq-more h3{font-size:16px;margin:0 0 10px}
+.faq-more a{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #e8f0fa;color:#315986;font-size:13px}
+.faq-more a:last-child{border:0}
+@media(max-width:760px){body[data-page="faq"] .category-hero-photo{background-image:linear-gradient(90deg,#084a92 0%,transparent 85%),url('../assets/faq-tryout.webp')}.faq-page .faq-grid{grid-template-columns:1fr}.faq-page{padding:24px 0 36px}.faq-filter-row{justify-content:flex-start}.faq-list-panel h2{font-size:19px}}
