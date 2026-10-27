@@ -67,3 +67,5 @@ body[data-page="kategori"] .nav a.active{background:none;border-bottom:2px solid
 body[data-page="kategori"] .nav .hp-mobile-account{display:none}
 @media(max-width:1100px){body[data-page="kategori"] .header-inner{gap:10px}body[data-page="kategori"] .brand{min-width:175px}body[data-page="kategori"] .nav a{padding:10px 8px}}
 @media(max-width:760px){body[data-page="kategori"] .header-inner{min-height:68px}body[data-page="kategori"] .brand{min-width:0}body[data-page="kategori"] .nav.open .hp-mobile-account{display:block}}
+
+.category-benefit-list svg{width:22px;height:22px;display:block}
