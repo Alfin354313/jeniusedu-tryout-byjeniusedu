@@ -24,3 +24,5 @@ body[data-page=home]{background:#fff;color:#0b275c}body[data-page=home] .contain
 .hp-art-0{background-position:0% 0%}.hp-art-1{background-position:33.333% 0%}.hp-art-2{background-position:66.667% 0%}.hp-art-3{background-position:100% 0%}
 .hp-art-4{background-position:0% 100%}.hp-art-5{background-position:33.333% 100%}.hp-art-6{background-position:66.667% 100%}.hp-art-7{background-position:100% 100%}
 @media(max-width:560px){.hp-featured-art{height:155px}}
+
+.hp-benefit-icon svg{width:26px;height:26px;display:block}
