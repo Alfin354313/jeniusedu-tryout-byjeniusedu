@@ -131,3 +131,36 @@ body[data-page="jadwal"] .nav .hp-mobile-account{display:none}
 /* Banner khusus jadwal */
 body[data-page="jadwal"] .category-hero-photo{background-image:linear-gradient(90deg,#084a92 0%,transparent 40%),url('../assets/jadwal-tryout.webp');background-position:center}
 @media(max-width:760px){body[data-page="jadwal"] .category-hero-photo{background-image:linear-gradient(90deg,#084a92 0%,transparent 85%),url('../assets/jadwal-tryout.webp')}}
+
+/* Samakan navigasi kategori dengan beranda */
+body[data-page="tentang"] .container{width:min(1220px,92%)}
+body[data-page="tentang"] .header{position:relative;background:#f8fcff}
+body[data-page="tentang"] .header-inner{min-height:70px;gap:18px}
+body[data-page="tentang"] .brand{min-width:210px}
+body[data-page="tentang"] .brand strong{font-size:21px;color:#092a60}
+body[data-page="tentang"] .brand small{font-size:10px}
+body[data-page="tentang"] .search{display:none}
+body[data-page="tentang"] .header-actions{margin-left:auto}
+body[data-page="tentang"] .nav a{padding:10px 12px;border-radius:0}
+body[data-page="tentang"] .nav a.active{background:none;border-bottom:2px solid #1978f1}
+body[data-page="tentang"] .nav .hp-mobile-account{display:none}
+@media(max-width:1100px){body[data-page="tentang"] .header-inner{gap:10px}body[data-page="tentang"] .brand{min-width:175px}body[data-page="tentang"] .nav a{padding:10px 8px}}
+@media(max-width:760px){body[data-page="tentang"] .header-inner{min-height:68px}body[data-page="tentang"] .brand{min-width:0}body[data-page="tentang"] .nav.open .hp-mobile-account{display:block}}
+
+
+
+body[data-page="tentang"] .category-hero-photo{background-image:linear-gradient(90deg,#084a92 0%,transparent 40%),url('../assets/tentang-tryout.webp');background-position:center}
+.about-page{padding:56px 0 70px;background:linear-gradient(160deg,#fff 65%,#e9f6ff)}
+.about-intro{max-width:800px;margin:0 auto 32px;text-align:center}
+.about-kicker{color:#1779ef;font-size:12px;font-weight:800;letter-spacing:.12em}
+.about-intro h2{color:#09275a;font-size:clamp(27px,3vw,38px);letter-spacing:-.035em;margin:12px 0}
+.about-intro p{font-size:16px;color:#59729a;line-height:1.7;margin:0}
+.about-benefits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.about-benefits article{display:flex;align-items:flex-start;gap:16px;padding:22px;background:#fff;border:1px solid #dceafa;border-radius:15px}
+.about-icon{display:grid;place-items:center;flex:none;width:52px;height:52px;border-radius:50%;background:#e7f4ff;color:#076cf3}
+.about-icon svg{width:25px;height:25px}
+.about-benefits h3{color:#0b285a;font-size:16px;margin:2px 0 8px}
+.about-benefits p{color:#627a9e;font-size:13px;line-height:1.6;margin:0}
+.about-action{text-align:center;margin-top:28px}
+.about-action p{color:#6f86a4;font-size:12px;margin:12px 0 0}
+@media(max-width:760px){body[data-page="tentang"] .category-hero-photo{background-image:linear-gradient(90deg,#084a92 0%,transparent 85%),url('../assets/tentang-tryout.webp')}.about-page{padding:38px 0}.about-benefits{grid-template-columns:1fr}.about-intro p{font-size:14px}}
