@@ -16,7 +16,7 @@ body[data-page=home]{background:#fff;color:#0b275c}body[data-page=home] .contain
 .hp-carousel-controls{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}.hp-carousel-controls:focus-within{position:static;width:auto;height:auto;margin:0 0 12px;overflow:visible;clip:auto}.hp-featured{scrollbar-width:none;-ms-overflow-style:none;cursor:grab;touch-action:pan-x pan-y}.hp-featured::-webkit-scrollbar{display:none}.hp-featured.is-dragging{cursor:grabbing;scroll-snap-type:none;user-select:none}.hp-featured.is-dragging a{pointer-events:none}
 
 /* Ilustrasi dan ikon kartu Tryout Pilihan */
-.hp-featured-art{height:170px;background-image:url('../assets/tryout-covers.png');background-size:400% 200%;background-repeat:no-repeat;background-color:#e4f2ff;padding:0}
+.hp-featured-art{height:170px;background-image:url('../assets/tryout-covers.png');background-size:400% auto;background-repeat:no-repeat;background-color:#e4f2ff;padding:0}
 .hp-featured-art:after{display:none}
 .hp-featured-art>span{position:absolute;left:12px;top:12px}
 .hp-featured-art b{position:absolute;left:12px;right:auto;bottom:10px;width:38px;height:38px;display:grid;place-items:center;border-radius:10px;background:#edf7ff;color:#126de2;box-shadow:0 3px 10px #092e5b1a}
