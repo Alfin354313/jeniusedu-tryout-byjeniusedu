@@ -50,3 +50,6 @@ body{background:linear-gradient(132deg,#e9f5ff 0%,#dceeff 43%,#f3f8ff 100%);colo
 .auth-panel .switch{padding:15px 10px 0;border-top:1px solid #e9f1fb;margin-top:20px}
 @media(max-width:800px){.auth-layout{grid-template-columns:1fr;gap:18px}.intro{min-height:0}.intro-copy{padding:28px 26px 16px}.intro h1{font-size:clamp(29px,7vw,39px);margin:15px 0 10px}.student-photo{height:200px}.auth-panel{min-height:0;padding:30px 26px}.auth-wrap{padding:8px 16px 28px}}
 @media(max-width:480px){.topbar{padding:16px}.intro-copy{padding:24px 20px 14px}.student-photo{width:calc(100% - 24px);margin:0 12px 12px;height:170px}.auth-panel{padding:26px 20px}.intro h1{font-size:30px}}
+
+.jenius-brand-logo{width:48px;height:48px;object-fit:contain;flex:none;border-radius:11px;display:block}
+@media(max-width:480px){.jenius-brand-logo{width:40px;height:40px}}
