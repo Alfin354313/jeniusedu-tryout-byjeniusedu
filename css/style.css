@@ -209,3 +209,7 @@ body[data-page="faq"] .category-hero-photo{background-image:linear-gradient(90de
 .faq-more a{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #e8f0fa;color:#315986;font-size:13px}
 .faq-more a:last-child{border:0}
 @media(max-width:760px){body[data-page="faq"] .category-hero-photo{background-image:linear-gradient(90deg,#084a92 0%,transparent 85%),url('../assets/faq-tryout.webp')}.faq-page .faq-grid{grid-template-columns:1fr}.faq-page{padding:24px 0 36px}.faq-filter-row{justify-content:flex-start}.faq-list-panel h2{font-size:19px}}
+
+/* Jenius Education logo on public navigation */
+.brand-icon img{display:block;width:43px;height:43px;object-fit:contain;border-radius:9px}
+@media(max-width:760px){.brand-icon img{width:37px;height:37px}}
