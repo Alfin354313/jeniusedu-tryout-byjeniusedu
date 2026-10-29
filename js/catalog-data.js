@@ -55,6 +55,12 @@ try{
       '<div class="jt-stat"><span>Batas akhir</span><strong>'+esc(selected.length===1?date(selected[0].ends_at):'Sesuai paket')+'</strong></div></div>';
     if(desc)desc.textContent=selected.length?'Informasi paket resmi yang diterbitkan melalui Jenius Edu.':'Belum ada paket yang diterbitkan pada kategori ini.';
   }
+  const enrollLink=main.querySelector('#detailEnrollLink');
+  if(enrollLink){
+    const chosen=id?rows[0]:rows.length===1?rows[0]:null;
+    if(chosen){enrollLink.href='login.html?next=checkout&exam='+encodeURIComponent(chosen.id);}
+    else{enrollLink.href='kategori.html';enrollLink.textContent='Pilih Paket Terlebih Dahulu →';}
+  }
   if(target&&!id){
     target.innerHTML=header('book','Tryout '+esc(key||'Tersedia'),'Pilih paket untuk melihat rincian ujian dan pendaftaran.')+
       '<div class="jt-package-grid">'+(rows.map(exam=>
