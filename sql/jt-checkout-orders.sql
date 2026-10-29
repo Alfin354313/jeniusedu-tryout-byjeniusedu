@@ -34,11 +34,12 @@ create policy jt_proof_read on storage.objects for select to authenticated
 using(bucket_id='jt-payment-proofs' and ((storage.foldername(name))[1]=auth.uid()::text or (auth.jwt()->'app_metadata'->>'role') in ('admin','pengelola','administrator')));
 create or replace function public.jt_create_order(p_exam_id uuid,p_code text default null)
 returns uuid language plpgsql security definer set search_path='' as $$
-declare e record;v record;o uuid;d integer:=0;fee integer:=1500;amt integer;uid uuid:=auth.uid();
+declare e record;v public.jt_vouchers%rowtype;o uuid;d integer:=0;fee integer:=1500;amt integer;uid uuid:=auth.uid();
 begin
  if uid is null then raise exception 'Silakan login'; end if;
  select id,price_idr,is_published into e from public.jt_exams where id=p_exam_id for share;
  if not found or e.is_published is distinct from true or e.price_idr is null then raise exception 'Paket belum tersedia'; end if;
+ v.id:=null; v.code:=null;
  if nullif(trim(p_code),'') is not null then
  select * into v from public.jt_vouchers where code=upper(trim(p_code)) for update;
  if not found or not v.is_active or (v.expires_at is not null and v.expires_at<=now()) or (v.max_uses is not null and v.used_count>=v.max_uses) then raise exception 'Voucher tidak valid atau kuota habis'; end if;
