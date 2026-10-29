@@ -1,0 +1,12 @@
+/* Database content inside the existing public category/schedule layout. */
+.catalog-schedule-list{display:grid;gap:16px;min-width:0;align-content:start}
+.catalog-schedule-list[hidden],.schedule-content>.schedule-empty[hidden]{display:none!important}
+.catalog-schedule-list .schedule-item{min-width:0}.catalog-schedule-list .schedule-item h3{overflow-wrap:anywhere}
+.catalog-package-count{display:block;margin:9px 0;color:#52759c;font-size:12px}
+.calendar-grid button.catalog-day{position:relative;display:grid;place-items:center;min-width:0;min-height:35px;padding:6px;border:1px solid transparent;border-radius:7px;background:#f0f6fc;color:#315e92;font:500 11px/1.4 inherit;cursor:pointer}
+.calendar-grid button.catalog-day.has-events{background:#dbeaff;color:#075ce5;font-weight:800;border-color:#9bc3ff}
+.calendar-grid button.catalog-day.is-selected{background:#0868ef;color:#fff;border-color:#0868ef}
+.catalog-day i{position:absolute;bottom:3px;width:4px;height:4px;border-radius:50%;background:currentColor}
+.calendar-grid button.catalog-day:focus-visible{outline:2px solid #075ce5;outline-offset:2px}
+#tentang-tryout .catalog-schedule-list .schedule-item,#sesi .schedule-item{display:flex;flex-wrap:wrap;gap:15px;margin:12px 0;padding:18px;border:1px solid #d7e5fa;border-radius:12px}
+@media(max-width:760px){.catalog-schedule-list .schedule-item{display:flex;flex-wrap:wrap;gap:14px}.catalog-schedule-list .schedule-meta{width:100%}}
