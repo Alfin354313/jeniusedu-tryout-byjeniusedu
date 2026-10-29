@@ -45,6 +45,16 @@ try{
   const id=params.get('exam'),key=params.get('kategori'),rows=exams.filter(x=>(!id||x.id===id)&&(!key||matches(x,key))),target=main.querySelector('#tentang-tryout'),session=main.querySelector('#sesi');
   const icon=(name)=>{const paths={book:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>',calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'};return '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+paths[name]+'</svg>'};
   const header=(name,title,desc)=>'<div class="jt-section-head"><span class="jt-section-icon">'+icon(name)+'</span><div><h2>'+title+'</h2><p class="muted">'+desc+'</p></div></div>';
+  const summary=main.querySelector('#detailSummary'),desc=main.querySelector('#detailDescription');
+  if(summary){
+    const selected=id?rows.slice(0,1):rows;
+    summary.innerHTML='<div class="jt-stat-grid">'+
+      '<div class="jt-stat"><span>Jumlah paket terbit</span><strong>'+selected.length+'</strong></div>'+
+      '<div class="jt-stat"><span>Durasi ujian</span><strong>'+esc(selected.length===1?selected[0].duration_minutes+' menit':'Sesuai paket')+'</strong></div>'+
+      '<div class="jt-stat"><span>Pelaksanaan</span><strong>'+esc(selected.length===1?date(selected[0].starts_at):'Lihat jadwal')+'</strong></div>'+
+      '<div class="jt-stat"><span>Batas akhir</span><strong>'+esc(selected.length===1?date(selected[0].ends_at):'Sesuai paket')+'</strong></div></div>';
+    if(desc)desc.textContent=selected.length?'Informasi paket resmi yang diterbitkan melalui Jenius Edu.':'Belum ada paket yang diterbitkan pada kategori ini.';
+  }
   if(target&&!id){
     target.innerHTML=header('book','Tryout '+esc(key||'Tersedia'),'Pilih paket untuk melihat rincian ujian dan pendaftaran.')+
       '<div class="jt-package-grid">'+(rows.map(exam=>
