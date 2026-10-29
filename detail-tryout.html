@@ -1,1 +1,23 @@
-<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0965ef"><meta name="description" content="Jenius Tryout by Jenius Edu — persiapan ujian SD, SMP, SMA, UTBK/SNBT, CPNS, Kedinasan dan MTsN/MAN."><title>Detail Tryout | Jenius Tryout</title><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/detail-cards.css?v=1"></head><body data-page="detail"><div id="app"></div><script src="js/site.js" defer></script></body></html>
+<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0965ef"><meta name="description" content="Jenius Tryout by Jenius Edu — persiapan ujian SD, SMP, SMA, UTBK/SNBT, CPNS, Kedinasan dan MTsN/MAN."><title>Detail Tryout | Jenius Tryout</title><link rel="stylesheet" href="css/style.css"><style>/* Detail Tryout: distinct package overview and session timeline */
+body[data-page="detail"] .jt-section-head{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+body[data-page="detail"] .jt-section-head h2{margin:4px 0 6px}
+body[data-page="detail"] .jt-section-head p{margin:0;font-size:13px}
+body[data-page="detail"] .jt-section-icon{width:46px;height:46px;display:grid;place-items:center;border-radius:13px;background:#e7f1ff;color:#0965ef;flex:none}
+body[data-page="detail"] .jt-package-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+body[data-page="detail"] .jt-package-card{display:flex;flex-direction:column;gap:12px;min-width:0;padding:20px;border:1px solid #dbe8fb;border-radius:15px;background:linear-gradient(145deg,#fff,#f4f9ff);color:#102d65;text-decoration:none;transition:box-shadow .2s,transform .2s}
+body[data-page="detail"] .jt-package-card:hover{box-shadow:0 8px 22px #0a58c51a;transform:translateY(-2px)}
+body[data-page="detail"] .jt-package-card strong{font-size:18px;line-height:1.35}
+body[data-page="detail"] .jt-package-category{align-self:flex-start;border-radius:30px;background:#dcecff;color:#095de0;padding:6px 11px;font-size:11px;font-weight:700}
+body[data-page="detail"] .jt-package-duration,body[data-page="detail"] .jt-session-duration{display:flex;align-items:center;gap:6px;color:#536b95;font-size:13px}
+body[data-page="detail"] .jt-package-duration svg,body[data-page="detail"] .jt-session-duration svg{width:16px;height:16px}
+body[data-page="detail"] .jt-package-link{margin-top:auto;font-size:13px;font-weight:700;color:#0865ed}
+body[data-page="detail"] .jt-session-list{border:1px solid #dbe8fb;border-radius:15px;overflow:hidden}
+body[data-page="detail"] .jt-session-row{display:flex;align-items:center;gap:18px;padding:18px;background:#fff}
+body[data-page="detail"] .jt-session-row+.jt-session-row{border-top:1px solid #e5edf9}
+body[data-page="detail"] .jt-session-date{width:88px;min-height:76px;border-radius:12px;background:#e9f3ff;color:#0c5dd8;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;font-weight:700;font-size:13px;flex:none}
+body[data-page="detail"] .jt-session-info{display:flex;flex-direction:column;gap:5px;flex:1;min-width:0}
+body[data-page="detail"] .jt-session-info strong{font-size:15px;color:#0d2c66}
+body[data-page="detail"] .jt-session-info span{font-size:12px;color:#526b95}
+body[data-page="detail"] .jt-calendar-link{margin-top:15px}
+@media(max-width:650px){body[data-page="detail"] .jt-package-grid{grid-template-columns:1fr}body[data-page="detail"] .jt-session-row{flex-wrap:wrap;gap:12px}body[data-page="detail"] .jt-session-date{width:70px;min-height:66px}body[data-page="detail"] .jt-session-duration{margin-left:82px}body[data-page="detail"] .jt-section-head{align-items:flex-start}}
+</style></head><body data-page="detail"><div id="app"></div><script src="js/site.js" defer></script></body></html>
