@@ -18,8 +18,8 @@ begin
  when v.discount_type='percent' then floor(base_amount * v.discount_value / 100)::integer
  else least(base_amount,v.discount_value::integer) end;
  return jsonb_build_object('code',v.code,'subtotal',base_amount,'discount',cut_amount,
- 'admin_fee',1500,'total',greatest(0,base_amount-cut_amount)+1500,
- 'requires_payment',greatest(0,base_amount-cut_amount)+1500>0,
+ 'admin_fee',case when v.discount_type='free' then 0 else 1500 end,'total',greatest(0,base_amount-cut_amount)+case when v.discount_type='free' then 0 else 1500 end,
+ 'requires_payment',greatest(0,base_amount-cut_amount)+case when v.discount_type='free' then 0 else 1500 end>0,
  'note','Estimasi saja. Voucher belum digunakan dan kuota belum berkurang.');
 end $$;
 revoke all on function public.jt_quote_voucher(uuid,text) from public,anon;
