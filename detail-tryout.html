@@ -20,4 +20,24 @@ body[data-page="detail"] .jt-session-info strong{font-size:15px;color:#0d2c66}
 body[data-page="detail"] .jt-session-info span{font-size:12px;color:#526b95}
 body[data-page="detail"] .jt-calendar-link{margin-top:15px}
 @media(max-width:650px){body[data-page="detail"] .jt-package-grid{grid-template-columns:1fr}body[data-page="detail"] .jt-session-row{flex-wrap:wrap;gap:12px}body[data-page="detail"] .jt-session-date{width:70px;min-height:66px}body[data-page="detail"] .jt-session-duration{margin-left:82px}body[data-page="detail"] .jt-section-head{align-items:flex-start}}
+
+/* Detail layout safeguards: explicit display rules prevent collapsed text. */
+body[data-page="detail"] #tentang-tryout .jt-package-grid{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))!important;gap:16px!important;margin-top:20px!important}
+body[data-page="detail"] #tentang-tryout .jt-package-card{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:12px!important;padding:22px!important;border:1px solid #dce8fa!important;border-radius:16px!important;background:#f7fbff!important;text-decoration:none!important;min-height:175px!important;box-sizing:border-box!important}
+body[data-page="detail"] .jt-package-card strong{display:block!important;font-size:19px!important;line-height:1.4!important}
+body[data-page="detail"] .jt-package-category{display:inline-flex!important;white-space:nowrap!important}
+body[data-page="detail"] .jt-package-duration,body[data-page="detail"] .jt-session-duration{display:inline-flex!important;align-items:center!important;gap:8px!important}
+body[data-page="detail"] .jt-section-head{display:flex!important;gap:15px!important;align-items:center!important;margin-bottom:16px!important}
+body[data-page="detail"] .jt-section-head>div{display:block!important;min-width:0!important}
+body[data-page="detail"] .jt-section-head h2{margin:0 0 8px!important}
+body[data-page="detail"] .jt-section-icon{display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 48px!important}
+body[data-page="detail"] #sesi .jt-session-list{display:block!important;margin-top:18px!important;border:1px solid #dce8fa!important;border-radius:16px!important;overflow:hidden!important}
+body[data-page="detail"] #sesi .jt-session-row{display:flex!important;align-items:center!important;gap:20px!important;padding:18px!important;flex-wrap:wrap!important}
+body[data-page="detail"] #sesi .jt-session-row+.jt-session-row{border-top:1px solid #dce8fa!important}
+body[data-page="detail"] #sesi .jt-session-date{display:flex!important;flex-direction:column!important;gap:5px!important;align-items:center!important;justify-content:center!important;flex:0 0 88px!important}
+body[data-page="detail"] #sesi .jt-session-info{display:flex!important;flex-direction:column!important;gap:7px!important;flex:1 1 240px!important;min-width:0!important}
+body[data-page="detail"] #sesi .jt-session-info strong,body[data-page="detail"] #sesi .jt-session-info span{display:block!important;line-height:1.5!important}
+body[data-page="detail"] #sesi .jt-session-duration{margin-left:auto!important}
+body[data-page="detail"] #sesi .jt-calendar-link{display:inline-flex!important;margin-top:18px!important}
+@media(max-width:600px){body[data-page="detail"] #sesi .jt-session-row{align-items:flex-start!important;gap:12px!important}body[data-page="detail"] #sesi .jt-session-duration{margin-left:0!important}}
 </style></head><body data-page="detail"><div id="app"></div><script src="js/site.js" defer></script></body></html>
