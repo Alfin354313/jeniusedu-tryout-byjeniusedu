@@ -13,3 +13,7 @@ Halaman Pembayaran sudah memeriksa status setiap 30 detik saat terlihat. Menu Pa
 Memakai SQL checkout, payment_access dan exam_runtime yang sudah disiapkan. Tidak ada SQL baru untuk perubahan menu ini. Aktivasi pembayaran di database tetap bergantung pada migrasi payment_access; ujian membutuhkan exam_runtime. Kode ini tidak memberi akses hanya berdasarkan status label di browser.
 
 Validasi jsdom: delapan kategori, link checkout, kelanjutan order pending, pemisahan pesanan dari paket aktif, exclusion cancelled/history, penyegaran aktivasi, konteks login/signup/Google, serta regresi harga/CMS/ruang ujian. Pemeriksaan browser signed-in dan transaksi nyata belum dilakukan. Preview saja.
+
+## Tampilan kartu kategori
+
+Halaman Paket Tryout menampilkan delapan kartu kategori lengkap: header gradasi biru, penjelasan dari CMS kategori, rincian durasi/jadwal, fasilitas, harga database dan tindakan pembelian. Jika hanya ada satu paket tersedia, kartu kategori memakai paket tersebut dan langsung menawarkan checkout/status pesanan/akses aktif. Jika ada beberapa paket, tombol membuka pilihan paket kategori. Kategori tanpa paket tetap tampil dengan status belum tersedia dan tombol nonaktif. Pencarian, dropdown kategori dan tombol Semua Kategori tetap tersedia. Daftar paket terfilter memakai desain kartu yang sama.
