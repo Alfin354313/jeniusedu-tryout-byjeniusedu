@@ -84,7 +84,7 @@ try{
   }
   if(id){const exam=rows[0];if(target)target.innerHTML=exam?'<span class="eyebrow">'+esc(category(exam)?.title||'Tryout')+'</span><h2>'+esc(exam.title)+'</h2><p>Durasi '+esc(exam.duration_minutes)+' menit.</p><p>Mulai: '+esc(date(exam.starts_at))+'</p><p>Selesai: '+esc(date(exam.ends_at))+'</p><a class="btn primary" href="login.html">Masuk ke Akun Peserta</a>':'<h2>Paket belum tersedia</h2><p>Paket belum diterbitkan atau sudah dinonaktifkan.</p>'}
  }
- if(page==='home'&&exams.length){const section=document.createElement('section');section.className='section';section.innerHTML='<div class="container"><div class="row-head"><h2>Tryout Terbaru</h2><a class="btn soft" href="jadwal.html">Lihat Jadwal</a></div><div class="catalog-schedule-list">'+cards(exams.slice(0,3))+'</div></div>';main.querySelector('section')?.after(section)}
+
 }catch{const message=main.querySelector('#scheduleCount');if(message)message.textContent='Jadwal belum dapat dimuat. Coba lagi nanti.';}
 }
 init();
