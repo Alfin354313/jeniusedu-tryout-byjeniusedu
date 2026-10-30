@@ -65,8 +65,8 @@ try{
   const enrollLink=main.querySelector('#detailEnrollLink');
   if(enrollLink){
     const chosen=id?rows[0]:rows.length===1?rows[0]:null;
-    if(chosen){enrollLink.href='login.html?next=checkout&exam='+encodeURIComponent(chosen.id);}
-    else{enrollLink.href='kategori.html';enrollLink.textContent='Pilih Paket Terlebih Dahulu →';}
+    if(chosen){enrollLink.href='login.html?next=packages&exam='+encodeURIComponent(chosen.id);}
+    else{enrollLink.href='login.html?next=packages'+(key?'&category='+encodeURIComponent(key):'');enrollLink.textContent='Masuk & Pilih Paket →';}
   }
   const selectedCategory=id?category(rows[0]||{}):categories.find(c=>[c.id,c.slug,c.title].some(v=>norm(v)===norm(key)));
   const guide=categoryGuide(selectedCategory?.slug)||categoryGuide(selectedCategory?.title)||categoryGuide(key);
@@ -75,7 +75,7 @@ try{
     target.innerHTML=guideHtml(guide)+header('book','Pilihan Paket '+esc(guide?.name||key||'Tryout'),'Periksa informasi, jadwal, dan harga sebelum memilih paket.')+
       '<div class="jt-offer-grid">'+(rows.map(exam=>offerHtml(exam,category(exam),date)).join('')||'<p class="notice">Paket kategori ini sedang disiapkan. Jadwal dan pembelian akan tersedia setelah paket diterbitkan.</p>')+'</div>';
   }
-  if(id){const exam=rows[0];if(target)target.innerHTML=exam?'<span class="eyebrow">'+esc(category(exam)?.title||'Tryout')+'</span><h2>'+esc(exam.title)+'</h2><p>Durasi '+esc(exam.duration_minutes)+' menit.</p><p>Mulai: '+esc(date(exam.starts_at))+'</p><p>Selesai: '+esc(date(exam.ends_at))+'</p><a class="btn primary" href="checkout.html?exam='+encodeURIComponent(exam.id)+'">Beli Paket / Lihat Checkout</a>':'<h2>Paket belum tersedia</h2><p>Paket belum diterbitkan atau sudah dinonaktifkan.</p>'}
+  if(id){const exam=rows[0];if(target)target.innerHTML=exam?'<span class="eyebrow">'+esc(category(exam)?.title||'Tryout')+'</span><h2>'+esc(exam.title)+'</h2><p>Durasi '+esc(exam.duration_minutes)+' menit.</p><p>Mulai: '+esc(date(exam.starts_at))+'</p><p>Selesai: '+esc(date(exam.ends_at))+'</p><a class="btn primary" href="paket-tryout.html?exam='+encodeURIComponent(exam.id)+'">Pilih Paket di Akun Peserta</a>':'<h2>Paket belum tersedia</h2><p>Paket belum diterbitkan atau sudah dinonaktifkan.</p>'}
   if(id&&rows[0]&&target){
     target.insertAdjacentHTML('beforeend',guideHtml(guide));
     const price=main.querySelector('#detailPrice');
