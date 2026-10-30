@@ -1,4 +1,4 @@
-import {categoryGuide,guideHtml,offerHtml} from './category-information.js?v=1';
+import {categoryGuide,guideHtml,offerHtml,applyCategoryInformation} from './category-information.js?v=2-cms';
 import {createClient} from 'https://esm.sh/@supabase/supabase-js@2';
 const db=createClient('https://emcchkpdgwkjovdylcth.supabase.co','sb_publishable_S_c2Lqt84z8XOgq6btW60g_Fz3rhrCe');
 const page=document.body.dataset.page,main=document.getElementById('main-content');
@@ -9,9 +9,11 @@ function dayKey(value){if(!value)return '';const d=new Date(value);if(isNaN(d))r
 async function init(){
 if(!main||!['home','kategori','jadwal','detail'].includes(page))return;
 try{
+ const information=page==='detail'?db.from('jt_category_information').select('slug,headline,intro,audience,topics,note').then(r=>{if(!r.error)applyCategoryInformation(r.data)}).catch(()=>{}):Promise.resolve();
  let [c,e]=await Promise.all([db.from('jt_categories').select('id,title,slug,description').eq('is_published',true),db.from('jt_exams').select('id,title,category_id,duration_minutes,starts_at,ends_at,price_idr').eq('is_published',true).order('starts_at',{ascending:true})]);
  if(e.error&&(e.error.code==='42703'||e.error.code==='PGRST204'))e=await db.from('jt_exams').select('id,title,category_id,duration_minutes,starts_at,ends_at').eq('is_published',true).order('starts_at',{ascending:true});
  if(c.error||e.error)throw Error('Data belum dapat dimuat');
+ await information;
  const categories=c.data||[],exams=e.data||[],params=new URLSearchParams(location.search);
  const category=exam=>categories.find(x=>x.id===exam.category_id);
  const matches=(exam,key)=>{const cat=category(exam);return key==='all'||!!cat&&[cat.title,cat.slug,cat.id].some(v=>norm(v)===norm(key))};
@@ -80,4 +82,5 @@ try{
 }catch{const message=main.querySelector('#scheduleCount');if(message)message.textContent='Jadwal belum dapat dimuat. Coba lagi nanti.';}
 }
 init();
+
 
