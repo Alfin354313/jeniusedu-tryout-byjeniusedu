@@ -43,12 +43,48 @@ try{
  }
  if(page==='detail'){
   const id=params.get('exam'),key=params.get('kategori'),rows=exams.filter(x=>(!id||x.id===id)&&(!key||matches(x,key))),target=main.querySelector('#tentang-tryout'),session=main.querySelector('#sesi');
-  if(key&&target){target.innerHTML='<span class="eyebrow">KATEGORI '+esc(key)+'</span><h2>Tryout '+esc(key)+'</h2><p>Paket yang sudah diterbitkan untuk kategori ini.</p><div class="catalog-schedule-list">'+(cards(rows)||'<div class="notice">Belum ada paket terbit pada kategori ini.</div>')+'</div>'}
-  if(session){session.innerHTML='<h2>Jadwal & Sesi</h2>'+(rows.length?cards(rows):'<div class="notice">Jadwal untuk kategori ini belum tersedia.</div>')+'<a class="btn" href="jadwal.html'+(key?'?kategori='+encodeURIComponent(key):'')+'">Lihat Kalender →</a>'}
-  if(id){const exam=rows[0];if(target)target.innerHTML=exam?'<span class="eyebrow">'+esc(category(exam)?.title||'Tryout')+'</span><h2>'+esc(exam.title)+'</h2><p>Durasi '+esc(exam.duration_minutes)+' menit.</p><p>Mulai: '+esc(date(exam.starts_at))+'</p><p>Selesai: '+esc(date(exam.ends_at))+'</p><a class="btn primary" href="pembayaran.html?exam='+encodeURIComponent(exam.id)+'">Beli Paket / Lihat Pembayaran</a>':'<h2>Paket belum tersedia</h2><p>Paket belum diterbitkan atau sudah dinonaktifkan.</p>'}
+  const icon=(name)=>{const paths={book:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>',calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'};return '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+paths[name]+'</svg>'};
+  const header=(name,title,desc)=>'<div class="jt-section-head"><span class="jt-section-icon">'+icon(name)+'</span><div><h2>'+title+'</h2><p class="muted">'+desc+'</p></div></div>';
+  const summary=main.querySelector('#detailSummary'),desc=main.querySelector('#detailDescription');
+  if(summary){
+    const selected=id?rows.slice(0,1):rows;
+    summary.innerHTML='<div class="jt-stat-grid">'+
+      '<div class="jt-stat"><span>Jumlah paket terbit</span><strong>'+selected.length+'</strong></div>'+
+      '<div class="jt-stat"><span>Durasi ujian</span><strong>'+esc(selected.length===1?selected[0].duration_minutes+' menit':'Sesuai paket')+'</strong></div>'+
+      '<div class="jt-stat"><span>Pelaksanaan</span><strong>'+esc(selected.length===1?date(selected[0].starts_at):'Lihat jadwal')+'</strong></div>'+
+      '<div class="jt-stat"><span>Batas akhir</span><strong>'+esc(selected.length===1?date(selected[0].ends_at):'Sesuai paket')+'</strong></div></div>';
+    if(desc)desc.textContent=selected.length?'Informasi paket resmi yang diterbitkan melalui Jenius Edu.':'Belum ada paket yang diterbitkan pada kategori ini.';
+  }
+  const enrollLink=main.querySelector('#detailEnrollLink');
+  if(enrollLink){
+    const chosen=id?rows[0]:rows.length===1?rows[0]:null;
+    if(chosen){enrollLink.href='login.html?next=checkout&exam='+encodeURIComponent(chosen.id);}
+    else{enrollLink.href='kategori.html';enrollLink.textContent='Pilih Paket Terlebih Dahulu →';}
+  }
+  if(target&&!id){
+    target.innerHTML=header('book','Tryout '+esc(key||'Tersedia'),'Pilih paket untuk melihat rincian ujian dan pendaftaran.')+
+      '<div class="jt-package-grid">'+(rows.map(exam=>
+      '<a class="jt-package-card" href="detail-tryout.html?exam='+encodeURIComponent(exam.id)+'">'+
+      '<span class="jt-package-category">'+esc(category(exam)?.title||'Tryout')+'</span>'+
+      '<strong>'+esc(exam.title)+'</strong>'+
+      '<span class="jt-package-duration">'+icon('clock')+'<span>'+esc(exam.duration_minutes)+' menit</span></span>'+
+      '<span class="jt-package-link">Lihat informasi paket →</span></a>').join('')||'<p class="notice">Belum ada paket diterbitkan untuk kategori ini.</p>')+'</div>';
+  }
+  if(session){
+    session.innerHTML=header('calendar','Jadwal & Sesi','Periode pelaksanaan paket yang sudah diterbitkan.')+
+      (rows.length?'<div class="jt-session-list">'+rows.map(exam=>
+      '<div class="jt-session-row"><div class="jt-session-date">'+icon('calendar')+
+      '<span>'+esc(exam.starts_at?new Date(exam.starts_at).toLocaleDateString('id-ID',{day:'2-digit',month:'short',timeZone:'Asia/Jakarta'}):'—')+'</span></div>'+
+      '<div class="jt-session-info"><strong>'+esc(exam.title)+'</strong>'+
+      '<span>Mulai: '+esc(date(exam.starts_at))+'</span>'+
+      '<span>Selesai: '+esc(date(exam.ends_at))+'</span></div>'+
+      '<span class="jt-session-duration">'+icon('clock')+'<span>'+esc(exam.duration_minutes)+' menit</span></span></div>').join('')+'</div>':
+      '<div class="notice">Jadwal belum tersedia.</div>')+
+      '<a class="btn soft jt-calendar-link" href="jadwal.html'+(key?'?kategori='+encodeURIComponent(key):'')+'">Lihat Kalender →</a>';
+  }
+  if(id){const exam=rows[0];if(target)target.innerHTML=exam?'<span class="eyebrow">'+esc(category(exam)?.title||'Tryout')+'</span><h2>'+esc(exam.title)+'</h2><p>Durasi '+esc(exam.duration_minutes)+' menit.</p><p>Mulai: '+esc(date(exam.starts_at))+'</p><p>Selesai: '+esc(date(exam.ends_at))+'</p><a class="btn primary" href="checkout.html?exam='+encodeURIComponent(exam.id)+'">Beli Paket / Lihat Checkout</a>':'<h2>Paket belum tersedia</h2><p>Paket belum diterbitkan atau sudah dinonaktifkan.</p>'}
  }
  if(page==='home'&&exams.length){const section=document.createElement('section');section.className='section';section.innerHTML='<div class="container"><div class="row-head"><h2>Tryout Terbaru</h2><a class="btn soft" href="jadwal.html">Lihat Jadwal</a></div><div class="catalog-schedule-list">'+cards(exams.slice(0,3))+'</div></div>';main.querySelector('section')?.after(section)}
 }catch{const message=main.querySelector('#scheduleCount');if(message)message.textContent='Jadwal belum dapat dimuat. Coba lagi nanti.';}
 }
 init();
-
