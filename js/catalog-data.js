@@ -1,4 +1,4 @@
-import {categoryGuide,guideHtml,offerHtml} from './category-information.js?v=1';
+import {categoryGuide,guideHtml,offerHtml,applyCategoryInformation} from './category-information.js?v=3-pricing';
 import {createClient} from 'https://esm.sh/@supabase/supabase-js@2';
 const db=createClient('https://emcchkpdgwkjovdylcth.supabase.co','sb_publishable_S_c2Lqt84z8XOgq6btW60g_Fz3rhrCe');
 const page=document.body.dataset.page,main=document.getElementById('main-content');
@@ -9,12 +9,17 @@ function dayKey(value){if(!value)return '';const d=new Date(value);if(isNaN(d))r
 async function init(){
 if(!main||!['home','kategori','jadwal','detail'].includes(page))return;
 try{
- let [c,e]=await Promise.all([db.from('jt_categories').select('id,title,slug,description').eq('is_published',true),db.from('jt_exams').select('id,title,category_id,duration_minutes,starts_at,ends_at,price_idr').eq('is_published',true).order('starts_at',{ascending:true})]);
+ const information=page==='detail'?db.from('jt_category_information').select('slug,headline,intro,audience,topics,note').then(r=>{if(!r.error)applyCategoryInformation(r.data)}).catch(()=>{}):Promise.resolve();
+ let [c,e]=await Promise.all([db.from('jt_categories').select('id,title,slug,description,price_idr').eq('is_published',true),db.from('jt_exams').select('id,title,category_id,duration_minutes,starts_at,ends_at,price_idr').eq('is_published',true).order('starts_at',{ascending:true})]);
+ if(c.error&&(c.error.code==='42703'||c.error.code==='PGRST204'))c=await db.from('jt_categories').select('id,title,slug,description').eq('is_published',true);
  if(e.error&&(e.error.code==='42703'||e.error.code==='PGRST204'))e=await db.from('jt_exams').select('id,title,category_id,duration_minutes,starts_at,ends_at').eq('is_published',true).order('starts_at',{ascending:true});
  if(c.error||e.error)throw Error('Data belum dapat dimuat');
+ await information;
  const categories=c.data||[],exams=e.data||[],params=new URLSearchParams(location.search);
  const category=exam=>categories.find(x=>x.id===exam.category_id);
  const matches=(exam,key)=>{const cat=category(exam);return key==='all'||!!cat&&[cat.title,cat.slug,cat.id].some(v=>norm(v)===norm(key))};
+ const categoryPrice=key=>{const c=categories.find(c=>[c.id,c.slug,c.title].some(v=>norm(v)===norm(key)));if(c?.price_idr!=null)return 'Rp'+Number(c.price_idr).toLocaleString('id-ID');const rows=exams.filter(e=>matches(e,key)),known=rows.filter(e=>e.price_idr!=null);if(!known.length)return 'Harga belum ditentukan';if(known.length!==rows.length)return 'Harga sesuai paket';const values=known.map(e=>Number(e.price_idr)),min=Math.min(...values);return (values.every(v=>v===min)?'':'Mulai ')+'Rp'+min.toLocaleString('id-ID')};
+ main.querySelectorAll('.category-card').forEach(card=>{const price=card.querySelector('.category-price');if(price)price.textContent=categoryPrice(card.querySelector('h3')?.textContent||'')});
  const cards=rows=>rows.map(exam=>'<article class="schedule-item"><div class="avatar" aria-hidden="true">▣</div><div><span class="eyebrow">'+esc(category(exam)?.title||'Tryout')+'</span><h3>'+esc(exam.title)+'</h3><p>Durasi '+esc(exam.duration_minutes)+' menit</p></div><div class="schedule-meta">Mulai: '+esc(date(exam.starts_at))+'<br>Selesai: '+esc(date(exam.ends_at))+'</div><div class="schedule-price"><a class="btn soft" href="detail-tryout.html?exam='+encodeURIComponent(exam.id)+'">Lihat Detail →</a></div></article>').join('');
  if(page==='kategori'){
   main.querySelectorAll('.category-card').forEach(card=>{const key=card.querySelector('h3')?.textContent||'',count=exams.filter(x=>matches(x,key)).length,body=card.querySelector('.category-card-body');
@@ -60,24 +65,26 @@ try{
   const enrollLink=main.querySelector('#detailEnrollLink');
   if(enrollLink){
     const chosen=id?rows[0]:rows.length===1?rows[0]:null;
-    if(chosen){enrollLink.href='login.html?next=checkout&exam='+encodeURIComponent(chosen.id);}
-    else{enrollLink.href='kategori.html';enrollLink.textContent='Pilih Paket Terlebih Dahulu →';}
+    if(chosen){enrollLink.href='login.html?next=packages&exam='+encodeURIComponent(chosen.id);}
+    else{enrollLink.href='login.html?next=packages'+(key?'&category='+encodeURIComponent(key):'');enrollLink.textContent='Masuk & Pilih Paket →';}
   }
   const selectedCategory=id?category(rows[0]||{}):categories.find(c=>[c.id,c.slug,c.title].some(v=>norm(v)===norm(key)));
   const guide=categoryGuide(selectedCategory?.slug)||categoryGuide(selectedCategory?.title)||categoryGuide(key);
-  const categoryPrice=main.querySelector('#detailPrice');if(categoryPrice&&!id)categoryPrice.textContent=rows.length?'Lihat harga paket':'Paket sedang disiapkan';
+  const categoryPrice=main.querySelector('#detailPrice');if(categoryPrice&&!id)categoryPrice.textContent=selectedCategory?.price_idr!=null?'Rp'+Number(selectedCategory.price_idr).toLocaleString('id-ID'):(rows.length?'Lihat harga paket':'Harga belum ditentukan');
   if(target&&!id){
     target.innerHTML=guideHtml(guide)+header('book','Pilihan Paket '+esc(guide?.name||key||'Tryout'),'Periksa informasi, jadwal, dan harga sebelum memilih paket.')+
       '<div class="jt-offer-grid">'+(rows.map(exam=>offerHtml(exam,category(exam),date)).join('')||'<p class="notice">Paket kategori ini sedang disiapkan. Jadwal dan pembelian akan tersedia setelah paket diterbitkan.</p>')+'</div>';
   }
-  if(id){const exam=rows[0];if(target)target.innerHTML=exam?'<span class="eyebrow">'+esc(category(exam)?.title||'Tryout')+'</span><h2>'+esc(exam.title)+'</h2><p>Durasi '+esc(exam.duration_minutes)+' menit.</p><p>Mulai: '+esc(date(exam.starts_at))+'</p><p>Selesai: '+esc(date(exam.ends_at))+'</p><a class="btn primary" href="checkout.html?exam='+encodeURIComponent(exam.id)+'">Beli Paket / Lihat Checkout</a>':'<h2>Paket belum tersedia</h2><p>Paket belum diterbitkan atau sudah dinonaktifkan.</p>'}
+  if(id){const exam=rows[0];if(target)target.innerHTML=exam?'<span class="eyebrow">'+esc(category(exam)?.title||'Tryout')+'</span><h2>'+esc(exam.title)+'</h2><p>Durasi '+esc(exam.duration_minutes)+' menit.</p><p>Mulai: '+esc(date(exam.starts_at))+'</p><p>Selesai: '+esc(date(exam.ends_at))+'</p><a class="btn primary" href="paket-tryout.html?exam='+encodeURIComponent(exam.id)+'">Pilih Paket di Akun Peserta</a>':'<h2>Paket belum tersedia</h2><p>Paket belum diterbitkan atau sudah dinonaktifkan.</p>'}
   if(id&&rows[0]&&target){
     target.insertAdjacentHTML('beforeend',guideHtml(guide));
     const price=main.querySelector('#detailPrice');
-    if(price)price.textContent=rows[0].price_idr==null?'Harga belum ditentukan':Number(rows[0].price_idr)===0?'Gratis':'Rp'+Number(rows[0].price_idr).toLocaleString('id-ID');
+    if(price)price.textContent=rows[0].price_idr==null?'Harga belum ditentukan':'Rp'+Number(rows[0].price_idr).toLocaleString('id-ID');
   }
  }
 }catch{const message=main.querySelector('#scheduleCount');if(message)message.textContent='Jadwal belum dapat dimuat. Coba lagi nanti.';}
 }
 init();
+
+
 

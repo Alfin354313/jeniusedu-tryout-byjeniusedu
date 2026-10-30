@@ -1,0 +1,23 @@
+/* Same offer-card design as the public category detail page. */
+.pt-catalogue-categories,.pt-catalogue-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin:22px 0;align-items:stretch}
+.pt-catalogue-categories[hidden],.pt-catalogue-grid[hidden]{display:none!important}
+.student-main .pt-category-offer,.student-main .pt-catalogue-card{display:flex;flex-direction:column;min-width:0;padding:0;border:1px solid #d4e4fc;border-radius:18px;background:#fff;overflow:hidden;box-shadow:0 6px 22px #123d6e05}
+.pt-offer-banner{padding:21px 23px;background:linear-gradient(115deg,#103975,#2877df);color:#fff;display:grid;gap:11px}
+.pt-offer-banner>span{font-size:11px;font-weight:800;letter-spacing:.05em;color:#e3efff}
+.pt-offer-banner>strong{font-size:18px;line-height:1.35;color:#fff}
+.pt-offer-body{padding:24px;display:flex;flex-direction:column;flex:1;min-width:0}
+.student-main .pt-offer-body h2{font-size:21px;line-height:1.4;color:#102e68;margin:0 0 15px;overflow-wrap:anywhere}
+.pt-offer-intro{font-size:13px;color:#5a789f;line-height:1.8;margin:0 0 24px;white-space:pre-line;overflow-wrap:anywhere}
+.pt-offer-details{margin:0 0 14px;font-size:12px;line-height:1.6}
+.pt-offer-details>div{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid #e5edfa}
+.pt-offer-details dt{color:#58769c}.pt-offer-details dd{margin:0;text-align:right;font-weight:650;color:#13396e}
+.pt-offer-availability{margin:0 0 18px}
+.pt-offer-features{list-style:none;display:grid;gap:14px;margin:0 0 26px;padding:0;font-size:12px;color:#15376c;line-height:1.75}
+.pt-offer-features li{position:relative;padding-left:23px}.pt-offer-features li:before{content:"✓";position:absolute;left:0;top:0;color:#1674ec;font-weight:850}
+.pt-offer-bottom{margin-top:auto;border-top:1px solid #e5edfa;padding-top:19px;display:grid;gap:10px}
+.pt-offer-bottom>span{font-size:11px;color:#617fa4}.pt-offer-bottom>strong{font-size:26px;font-weight:800;line-height:1.4;color:#1264d7;overflow-wrap:anywhere}
+.pt-offer-bottom>small{font-size:11px;line-height:1.75;color:#6782a4}.pt-offer-info{font-size:12px;color:#125dba}
+.pt-offer-bottom .student-primary{box-sizing:border-box;width:100%;min-height:43px;display:flex;align-items:center;justify-content:center;border:0;font:inherit;font-size:13px;font-weight:700;line-height:1.5;border-radius:11px;margin-top:8px;padding:12px 16px;text-align:center;background:linear-gradient(105deg,#267bf6,#0056ea);color:#fff;text-decoration:none;box-shadow:0 5px 12px #1b6fee1c;cursor:pointer}
+.pt-offer-bottom .student-primary:disabled{background:#edf3fa;color:#7b91ad;box-shadow:none;cursor:default}
+.pt-offer-bottom a:focus-visible,.pt-offer-bottom button:focus-visible{outline:3px solid #8cbcff;outline-offset:3px}
+@media(max-width:850px){.pt-catalogue-categories,.pt-catalogue-grid{grid-template-columns:1fr;gap:18px}.pt-offer-body{padding:21px}.student-main .pt-offer-body h2{font-size:20px}}

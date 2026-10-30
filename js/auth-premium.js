@@ -2,10 +2,11 @@ import {createClient} from "https://esm.sh/@supabase/supabase-js@2";
 const supabase=createClient("https://emcchkpdgwkjovdylcth.supabase.co","sb_publishable_S_c2Lqt84z8XOgq6btW60g_Fz3rhrCe");
 const page=document.body.dataset.auth;
 const params=new URLSearchParams(location.search);
-const exam=params.get('exam');
-const checkoutIntent=params.get('next')==='checkout'&&/^[0-9a-f-]{36}$/i.test(exam||'');
-const suffix=checkoutIntent?'?next=checkout&exam='+encodeURIComponent(exam):'';
-const destination=checkoutIntent?'checkout.html?exam='+encodeURIComponent(exam):'dashboard.html';
+const exam=params.get('exam'),validExam=/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(exam||'');
+const packagesIntent=['packages','checkout'].includes(params.get('next'));
+const intent=new URLSearchParams();if(packagesIntent){intent.set('next','packages');if(validExam)intent.set('exam',exam);const category=params.get('category');if(category&&category.length<=80)intent.set('category',category)}
+const suffix=packagesIntent?'?'+intent:'';
+const destination=packagesIntent?'paket-tryout.html'+(validExam||intent.has('category')?'?'+new URLSearchParams([...intent].filter(([key])=>key!=='next')):''):'dashboard.html';
 document.querySelectorAll('a[href="daftar.html"],a[href="login.html"]').forEach(a=>{a.href+=suffix});
 
 const form=document.getElementById("authForm"),pass=document.getElementById("code"),show=document.getElementById("showPassword"),feedback=document.getElementById("authError");
@@ -28,3 +29,4 @@ if(page==="daftar"){
  location.assign(destination);return;
 }
 }catch(error){feedback.textContent=error.message||"Terjadi kesalahan. Silakan coba lagi."}finally{button.disabled=false}});
+
