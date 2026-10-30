@@ -45,9 +45,10 @@ try{
   const id=params.get('exam'),key=params.get('kategori'),rows=exams.filter(x=>(!id||x.id===id)&&(!key||matches(x,key))),target=main.querySelector('#tentang-tryout'),session=main.querySelector('#sesi');
   if(key&&target){target.innerHTML='<span class="eyebrow">KATEGORI '+esc(key)+'</span><h2>Tryout '+esc(key)+'</h2><p>Paket yang sudah diterbitkan untuk kategori ini.</p><div class="catalog-schedule-list">'+(cards(rows)||'<div class="notice">Belum ada paket terbit pada kategori ini.</div>')+'</div>'}
   if(session){session.innerHTML='<h2>Jadwal & Sesi</h2>'+(rows.length?cards(rows):'<div class="notice">Jadwal untuk kategori ini belum tersedia.</div>')+'<a class="btn" href="jadwal.html'+(key?'?kategori='+encodeURIComponent(key):'')+'">Lihat Kalender →</a>'}
-  if(id){const exam=rows[0];if(target)target.innerHTML=exam?'<span class="eyebrow">'+esc(category(exam)?.title||'Tryout')+'</span><h2>'+esc(exam.title)+'</h2><p>Durasi '+esc(exam.duration_minutes)+' menit.</p><p>Mulai: '+esc(date(exam.starts_at))+'</p><p>Selesai: '+esc(date(exam.ends_at))+'</p><a class="btn primary" href="login.html">Masuk ke Akun Peserta</a>':'<h2>Paket belum tersedia</h2><p>Paket belum diterbitkan atau sudah dinonaktifkan.</p>'}
+  if(id){const exam=rows[0];if(target)target.innerHTML=exam?'<span class="eyebrow">'+esc(category(exam)?.title||'Tryout')+'</span><h2>'+esc(exam.title)+'</h2><p>Durasi '+esc(exam.duration_minutes)+' menit.</p><p>Mulai: '+esc(date(exam.starts_at))+'</p><p>Selesai: '+esc(date(exam.ends_at))+'</p><a class="btn primary" href="pembayaran.html?exam='+encodeURIComponent(exam.id)+'">Beli Paket / Lihat Pembayaran</a>':'<h2>Paket belum tersedia</h2><p>Paket belum diterbitkan atau sudah dinonaktifkan.</p>'}
  }
  if(page==='home'&&exams.length){const section=document.createElement('section');section.className='section';section.innerHTML='<div class="container"><div class="row-head"><h2>Tryout Terbaru</h2><a class="btn soft" href="jadwal.html">Lihat Jadwal</a></div><div class="catalog-schedule-list">'+cards(exams.slice(0,3))+'</div></div>';main.querySelector('section')?.after(section)}
 }catch{const message=main.querySelector('#scheduleCount');if(message)message.textContent='Jadwal belum dapat dimuat. Coba lagi nanti.';}
 }
 init();
+
