@@ -1,3 +1,4 @@
+import {categoryGuide,guideHtml,offerHtml} from './category-information.js?v=1';
 import {createClient} from 'https://esm.sh/@supabase/supabase-js@2';
 const db=createClient('https://emcchkpdgwkjovdylcth.supabase.co','sb_publishable_S_c2Lqt84z8XOgq6btW60g_Fz3rhrCe');
 const page=document.body.dataset.page,main=document.getElementById('main-content');
@@ -8,7 +9,8 @@ function dayKey(value){if(!value)return '';const d=new Date(value);if(isNaN(d))r
 async function init(){
 if(!main||!['home','kategori','jadwal','detail'].includes(page))return;
 try{
- const [c,e]=await Promise.all([db.from('jt_categories').select('id,title,slug,description').eq('is_published',true),db.from('jt_exams').select('id,title,category_id,duration_minutes,starts_at,ends_at').eq('is_published',true).order('starts_at',{ascending:true})]);
+ let [c,e]=await Promise.all([db.from('jt_categories').select('id,title,slug,description').eq('is_published',true),db.from('jt_exams').select('id,title,category_id,duration_minutes,starts_at,ends_at,price_idr').eq('is_published',true).order('starts_at',{ascending:true})]);
+ if(e.error&&(e.error.code==='42703'||e.error.code==='PGRST204'))e=await db.from('jt_exams').select('id,title,category_id,duration_minutes,starts_at,ends_at').eq('is_published',true).order('starts_at',{ascending:true});
  if(c.error||e.error)throw Error('Data belum dapat dimuat');
  const categories=c.data||[],exams=e.data||[],params=new URLSearchParams(location.search);
  const category=exam=>categories.find(x=>x.id===exam.category_id);
@@ -61,14 +63,12 @@ try{
     if(chosen){enrollLink.href='login.html?next=checkout&exam='+encodeURIComponent(chosen.id);}
     else{enrollLink.href='kategori.html';enrollLink.textContent='Pilih Paket Terlebih Dahulu →';}
   }
+  const selectedCategory=id?category(rows[0]||{}):categories.find(c=>[c.id,c.slug,c.title].some(v=>norm(v)===norm(key)));
+  const guide=categoryGuide(selectedCategory?.slug)||categoryGuide(selectedCategory?.title)||categoryGuide(key);
+  const categoryPrice=main.querySelector('#detailPrice');if(categoryPrice&&!id)categoryPrice.textContent=rows.length?'Lihat harga paket':'Paket sedang disiapkan';
   if(target&&!id){
-    target.innerHTML=header('book','Tryout '+esc(key||'Tersedia'),'Pilih paket untuk melihat rincian ujian dan pendaftaran.')+
-      '<div class="jt-package-grid">'+(rows.map(exam=>
-      '<a class="jt-package-card" href="detail-tryout.html?exam='+encodeURIComponent(exam.id)+'">'+
-      '<span class="jt-package-category">'+esc(category(exam)?.title||'Tryout')+'</span>'+
-      '<strong>'+esc(exam.title)+'</strong>'+
-      '<span class="jt-package-duration">'+icon('clock')+'<span>'+esc(exam.duration_minutes)+' menit</span></span>'+
-      '<span class="jt-package-link">Lihat informasi paket →</span></a>').join('')||'<p class="notice">Belum ada paket diterbitkan untuk kategori ini.</p>')+'</div>';
+    target.innerHTML=guideHtml(guide)+header('book','Pilihan Paket '+esc(guide?.name||key||'Tryout'),'Periksa informasi, jadwal, dan harga sebelum memilih paket.')+
+      '<div class="jt-offer-grid">'+(rows.map(exam=>offerHtml(exam,category(exam),date)).join('')||'<p class="notice">Paket kategori ini sedang disiapkan. Jadwal dan pembelian akan tersedia setelah paket diterbitkan.</p>')+'</div>';
   }
   if(session){
     session.innerHTML=header('calendar','Jadwal & Sesi','Periode pelaksanaan paket yang sudah diterbitkan.')+
@@ -83,7 +83,13 @@ try{
       '<a class="btn soft jt-calendar-link" href="jadwal.html'+(key?'?kategori='+encodeURIComponent(key):'')+'">Lihat Kalender →</a>';
   }
   if(id){const exam=rows[0];if(target)target.innerHTML=exam?'<span class="eyebrow">'+esc(category(exam)?.title||'Tryout')+'</span><h2>'+esc(exam.title)+'</h2><p>Durasi '+esc(exam.duration_minutes)+' menit.</p><p>Mulai: '+esc(date(exam.starts_at))+'</p><p>Selesai: '+esc(date(exam.ends_at))+'</p><a class="btn primary" href="checkout.html?exam='+encodeURIComponent(exam.id)+'">Beli Paket / Lihat Checkout</a>':'<h2>Paket belum tersedia</h2><p>Paket belum diterbitkan atau sudah dinonaktifkan.</p>'}
+  if(id&&rows[0]&&target){
+    target.insertAdjacentHTML('beforeend',guideHtml(guide));
+    const price=main.querySelector('#detailPrice');
+    if(price)price.textContent=rows[0].price_idr==null?'Harga belum ditentukan':Number(rows[0].price_idr)===0?'Gratis':'Rp'+Number(rows[0].price_idr).toLocaleString('id-ID');
+  }
  }
 }catch{const message=main.querySelector('#scheduleCount');if(message)message.textContent='Jadwal belum dapat dimuat. Coba lagi nanti.';}
 }
 init();
+

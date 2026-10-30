@@ -10,3 +10,32 @@
 .calendar-grid button.catalog-day:focus-visible{outline:2px solid #075ce5;outline-offset:2px}
 #tentang-tryout .catalog-schedule-list .schedule-item,#sesi .schedule-item{display:flex;flex-wrap:wrap;gap:15px;margin:12px 0;padding:18px;border:1px solid #d7e5fa;border-radius:12px}
 @media(max-width:760px){.catalog-schedule-list .schedule-item{display:flex;flex-wrap:wrap;gap:14px}.catalog-schedule-list .schedule-meta{width:100%}}
+
+/* Detailed category guidance and package offers. */
+body[data-page="detail"] .jt-category-guide{padding:26px;margin:24px 0 28px;border:1px solid #dce8f8;border-radius:18px;background:linear-gradient(135deg,#f1f7ff,#fff);color:#153760}
+body[data-page="detail"] .jt-category-guide h2{margin:8px 0 12px;font-size:25px;line-height:1.3}
+body[data-page="detail"] .jt-guide-columns{display:grid;grid-template-columns:1fr 1.2fr;gap:25px;margin-top:22px}
+body[data-page="detail"] .jt-guide-columns h3{font-size:15px;margin:0 0 10px}
+body[data-page="detail"] .jt-category-guide p,body[data-page="detail"] .jt-category-guide li{font-size:14px;line-height:1.75}
+body[data-page="detail"] .jt-guide-columns ul{margin:0;padding-left:19px}
+body[data-page="detail"] .jt-guide-note{border-top:1px solid #dce8f8;padding-top:15px;margin-bottom:0;color:#647b99;font-size:12px}
+body[data-page="detail"] .jt-offer-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:stretch}
+body[data-page="detail"] .jt-offer{display:flex;flex-direction:column;min-width:0;border:1px solid #dce8f8;border-radius:18px;overflow:hidden;background:white;box-shadow:0 8px 28px #12345a08}
+body[data-page="detail"] .jt-offer-banner{padding:23px;background:linear-gradient(120deg,#0b326d,#1674dc);color:white;display:grid;gap:12px}
+body[data-page="detail"] .jt-offer-banner span{font-size:12px;font-weight:700;letter-spacing:.04em;color:#d8eaff}
+body[data-page="detail"] .jt-offer-banner strong{font-size:20px;line-height:1.35}
+body[data-page="detail"] .jt-offer-body{padding:23px;display:flex;flex-direction:column;flex:1}
+body[data-page="detail"] .jt-offer h3{margin:0 0 12px;font-size:21px;line-height:1.4;overflow-wrap:anywhere}
+body[data-page="detail"] .jt-offer-intro{margin:0 0 20px;color:#617897;font-size:14px;line-height:1.7}
+body[data-page="detail"] .jt-offer dl{margin:0 0 20px;font-size:12px}
+body[data-page="detail"] .jt-offer dl div{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid #e8eff8}
+body[data-page="detail"] .jt-offer dt{color:#617897}body[data-page="detail"] .jt-offer dd{margin:0;text-align:right;font-weight:600}
+body[data-page="detail"] .jt-offer-features{list-style:none;padding:0;margin:0 0 23px;display:grid;gap:12px;font-size:13px;line-height:1.6}
+body[data-page="detail"] .jt-offer-features li{position:relative;padding-left:24px}
+body[data-page="detail"] .jt-offer-features li:before{content:"✓";position:absolute;left:0;top:0;color:#0872db;font-weight:800}
+body[data-page="detail"] .jt-offer-bottom{margin-top:auto;padding-top:20px;border-top:1px solid #e8eff8;display:grid;gap:9px}
+body[data-page="detail"] .jt-offer-bottom>span{color:#617897;font-size:12px}
+body[data-page="detail"] .jt-offer-bottom>strong{font-size:26px;color:#0b5fce}
+body[data-page="detail"] .jt-offer-bottom small{font-size:11px;line-height:1.65;color:#6b819c}
+body[data-page="detail"] .jt-offer-bottom a{margin-top:10px;text-align:center}
+@media(max-width:800px){body[data-page="detail"] .jt-offer-grid,body[data-page="detail"] .jt-guide-columns{grid-template-columns:1fr}body[data-page="detail"] .jt-category-guide,body[data-page="detail"] .jt-offer-body{padding:20px}}
