@@ -87,3 +87,6 @@ body:has(.student-app){margin:0;background:#f3f8ff}
  .student-hero .student-hero-photo{width:100%;height:100%;opacity:.75;mask-image:none;-webkit-mask-image:none}
  .student-hero:after{background:linear-gradient(90deg,#102e66f5 0%,#123b77dd 45%,#14569b8c 100%)}
 }
+
+.student-hero a.student-primary{color:#1454a5!important;background:#fff}
+.student-hero a.student-primary:hover{color:#103c7a!important;background:#e7f2ff}
